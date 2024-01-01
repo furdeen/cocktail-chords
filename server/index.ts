@@ -35,6 +35,12 @@ try {
       console.log(
         `🍸    Health check at "http://localhost:${PORT}/health"            🍸`
       );
+      console.log(
+        `🍸    Or try "http://localhost:${PORT}/api/randomCocktail"        🍸`
+      );
+      console.log(
+        `🍸    Or try "http://localhost:${PORT}/api/cocktailById/11007"        🍸`
+      );
 
       console.log(
         `🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸`
