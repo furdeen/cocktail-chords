@@ -1,5 +1,6 @@
 import * as express from "express";
 import { Express } from "express";
+import * as cocktailController from "../controllers/cocktailcontroller";
 
 export function initialiseRoutes(app: Express) {
   console.log("🏗️  Setting up routers...");
@@ -39,6 +40,10 @@ function addAPIRoutes(app: Express) {
     res.setHeader("Content-Type", "application/json");
     next();
   });
+
+  apiRouter.get("/cocktailById/:id", cocktailController.getCocktailByIdData);
+
+  apiRouter.get("/randomCocktail/", cocktailController.getRandomCocktailData);
 
   console.log("🛠️  Applying API router to Express server...");
   app.use("/api", apiRouter);
