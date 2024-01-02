@@ -4,7 +4,6 @@
   height: 100dvh;
 }
 
-/* note: dynamic viewport width - that's new!! */
 .header {
   display: flex;
   justify-content: flex-start;
@@ -45,4 +44,32 @@
 
 .header__nav-item:last-child {
   margin-right: 0;
+}
+
+/* Daily Mix */
+.daily-mix__container {
+  width: 50dvw;
+  background-color: rgb(237, 237, 212);
+}
+
+.daily-mix__title {
+  /* Title styles */
+}
+
+.daily-mix__instructions {
+  /* Instructions styles */
+}
+
+/* this will need breaking down into seperate calls for each instruction */
+.daily-mix__ingredients {
+  /* Ingredients styles */
+}
+
+.daily-mix__measures {
+  /* Measures styles */
+}
+
+.daily-mix__img {
+  width: 30%;
+  padding-bottom: 10px;
 }
