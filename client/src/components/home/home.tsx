@@ -1,7 +1,7 @@
 const Home: React.FC = () => {
   return (
     <div>
-      <h1>Welcome to Cocktail Chords (home page).</h1>
+      <h1>Welcome (home page).</h1>
     </div>
   );
 };
