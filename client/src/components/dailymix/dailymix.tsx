@@ -8,7 +8,7 @@ type DailyMixProps = {
   strDrinkThumb: string;
 };
 
-const Dailymix: React.FC = () => {
+const DailyMix: React.FC = () => {
   const [dailymix, setDailymix] = useState<DailyMixProps | null>(null);
 
   useEffect(() => {
@@ -47,4 +47,4 @@ const Dailymix: React.FC = () => {
   );
 };
 
-export default Dailymix;
+export default DailyMix;
