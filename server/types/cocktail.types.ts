@@ -10,6 +10,12 @@ export interface CocktailApiResponse {
   }[];
 }
 
+export interface Cocktail {
+  strDrink: string;
+  strDrinkThumb: string;
+  idDrink: string;
+}
+
 export interface MeasureIngredients {
   [key: string]: string | null;
 }
@@ -32,3 +38,41 @@ export interface RandomCocktail {
   strInstructions: string;
   strDrinkThumb: string;
 }
+
+export type DrinksCategory =
+  | "Ordinary Drink"
+  | "Cocktail"
+  | "Shake"
+  | "Other / Unknown"
+  | "Cocoa"
+  | "Shot"
+  | "Coffee / Tea"
+  | "Homemade Liqueur"
+  | "Punch / Party Drink"
+  | "Beer"
+  | "Soft Drink"
+  | "Non alcoholic"
+  | "Optional alcohol";
+
+//checks whether received category query parameter is valid
+export const isValidCategory = (
+  category: string
+): category is DrinksCategory => {
+  const validDrinkCategories: DrinksCategory[] = [
+    "Ordinary Drink",
+    "Cocktail",
+    "Shake",
+    "Other / Unknown",
+    "Cocoa",
+    "Shot",
+    "Coffee / Tea",
+    "Homemade Liqueur",
+    "Punch / Party Drink",
+    "Beer",
+    "Soft Drink",
+    "Non alcoholic",
+    "Optional alcohol",
+  ];
+
+  return validDrinkCategories.includes(category as DrinksCategory);
+};

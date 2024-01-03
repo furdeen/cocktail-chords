@@ -43,6 +43,10 @@ try {
       );
 
       console.log(
+        `🍸    Or try "http://localhost:${PORT}/api/cocktailsByCategory/Shot"        🍸`
+      );
+
+      console.log(
         `🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸`
       );
     })
