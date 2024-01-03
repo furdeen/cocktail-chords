@@ -5,7 +5,7 @@ import Home from "../home/home";
 import DailyMix from "../dailymix/dailymix";
 
 import MainLayout from "../layouts/main_layouts";
-import Moviemix from "../moviemix/moviemix";
+import MusicMix from "../musicmix/musicmix";
 import NotFound from "../not_found/not_found";
 
 const Router: React.FC = () => (
@@ -13,7 +13,7 @@ const Router: React.FC = () => (
     <Route path="/" element={<MainLayout />}>
       <Route index element={<Home />} />
       <Route path="dailymix" element={<DailyMix />} />
-      <Route path="moviemix" element={<Moviemix />} />
+      <Route path="moviemix" element={<MusicMix />} />
       <Route path="*" element={<NotFound />} />
     </Route>
   </Routes>
