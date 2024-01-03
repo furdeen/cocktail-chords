@@ -21,9 +21,11 @@ const DeezerWidget: React.FC<DeezerWidgetProps> = ({ trackId }) => {
   return (
     <div className="daily-mix__container">
       <iframe
+        className="deezer__iframe"
         title="deezer-widget"
         src={deezerWidget}
         width="100%"
+        frameBorder="0"
         height="300"
         allow="encrypted-media; clipboard-write"
       ></iframe>

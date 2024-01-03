@@ -93,11 +93,14 @@
 /* Daily Mix */
 .daily-mix {
   display: flex;
+  width: 90dvw;
+  justify-content: space-around;
+  background-color: #ededd4;
 }
 
 .daily-mix__container {
-  width: 50dvw;
-  background-color: rgb(237, 237, 212);
+  width: 42dvw;
+  background-color: #ededd4;
 }
 
 /* .daily-mix__title {
@@ -106,10 +109,13 @@
 /* .daily-mix__instructions {
 } */
 
-/* this will need breaking down into seperate calls for each instruction */
 /* .daily-mix__ingredients {
-
+ 
 } */
+
+.daily-mix__ingredients-list {
+  list-style: none;
+}
 
 /* .daily-mix__measures {
 
@@ -118,6 +124,10 @@
 .daily-mix__img {
   width: 30%;
   padding-bottom: 10px;
+}
+
+.deezer__iframe {
+  padding-top: 2rem;
 }
 
 /* Responsive styles */

@@ -35,8 +35,16 @@ const DailyMix: React.FC = () => {
         <div className="daily-mix__container">
           <h2 className="daily-mix__title">{dailymix.strDrink}</h2>
           <p className="daily-mix__instructions">{dailymix.strInstructions}</p>
-          <p className="daily-mix__ingredients">{dailymix.ingredients}</p>
-          <p className="daily-mix__measures">{dailymix.measures}</p>
+          <div className="daily-mix__ingredients">
+            <h3>Ingredients</h3>
+            <ul className="daily-mix__ingredients-list">
+              {dailymix.ingredients.map((ingredient, index) => (
+                <li className="daily-mix__ingredients-list-item" key={index}>
+                  {ingredient} - {dailymix.measures[index]}
+                </li>
+              ))}
+            </ul>
+          </div>
           <img
             className="daily-mix__img"
             src={dailymix.strDrinkThumb}
@@ -44,7 +52,7 @@ const DailyMix: React.FC = () => {
           />
         </div>
       )}
-      <DeezerWidget trackId="3135556" />
+      <DeezerWidget trackId="3159453" />
     </div>
   );
 };
