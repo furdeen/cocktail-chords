@@ -91,6 +91,10 @@
 }
 
 /* Daily Mix */
+.daily-mix {
+  display: flex;
+}
+
 .daily-mix__container {
   width: 50dvw;
   background-color: rgb(237, 237, 212);
