@@ -30,6 +30,7 @@ export interface DrinkObject {
   strDrinkThumb: string;
   ingredients: Array<string>;
   measures: Array<string>;
+  //musicGenreId: number;
 }
 
 export interface RandomCocktail {
