@@ -33,6 +33,19 @@ export interface DrinkObject {
   //musicGenreId: number;
 }
 
+export interface CocktailMusic {
+  idDrink: string;
+  strDrink: string;
+  strCategory: string;
+  strAlcoholic: string;
+  strGlass: string;
+  strInstructions: string;
+  strDrinkThumb: string;
+  ingredients: Array<string>;
+  measures: Array<string>;
+  trackId: number;
+}
+
 export interface RandomCocktail {
   idDrink: string;
   strDrink: string;
