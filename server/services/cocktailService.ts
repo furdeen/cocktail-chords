@@ -3,8 +3,10 @@ import {
   CocktailApiResponse,
   MeasureIngredients,
   Cocktail,
+  CocktailMusic,
 } from "../types/cocktail.types";
 import { getIngredientsArray, getMeasuresArray } from "./cocktail-helpers";
+import { fetchRandomSong } from "./musicService";
 
 export async function fetchCocktailByIdData(
   id: number
@@ -120,6 +122,69 @@ export async function fetchCocktailsByCategory(
 
     if (responseData) {
       return shapedData;
+    }
+
+    return null;
+  } catch (error) {
+    console.error("Error fetching cocktail data:", error);
+    return null;
+  }
+}
+
+export async function fetchRandomCocktailSongData(): Promise<{
+  idDrink: string;
+  strDrink: string;
+  strInstructions: string;
+  strDrinkThumb: string;
+} | null> {
+  try {
+    const response = await fetch(
+      `https://www.thecocktaildb.com/api/json/v1/1/random.php`
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const responseData: CocktailApiResponse = await response.json();
+
+    if (responseData) {
+      const cocktailDrink = responseData.drinks;
+
+      const {
+        idDrink,
+        strDrink,
+        strCategory,
+        strAlcoholic,
+        strGlass,
+        strInstructions,
+        strDrinkThumb,
+      } = cocktailDrink[0];
+
+      //filter out null values and place ingredients in an array
+      const ingredientsArray = getIngredientsArray(cocktailDrink);
+
+      //filter out null values and place measures in an array
+      const measuresArray = getMeasuresArray(cocktailDrink);
+
+      const musicTrack = await fetchRandomSong(strDrink);
+      console.log(musicTrack);
+
+      //create return object
+      const returnObject: CocktailMusic = {
+        idDrink: idDrink,
+        strDrink: strDrink,
+        strCategory: strCategory,
+        strAlcoholic: strAlcoholic,
+        strGlass: strGlass,
+        strInstructions: strInstructions,
+        strDrinkThumb: strDrinkThumb,
+        ingredients: ingredientsArray,
+        measures: measuresArray,
+        trackId: musicTrack,
+      };
+
+      return returnObject;
     }
 
     return null;
