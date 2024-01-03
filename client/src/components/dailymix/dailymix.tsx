@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import DeezerWidget from "../widgets/deezer_widget";
 
 type DailyMixProps = {
   strDrink: string;
@@ -29,7 +30,7 @@ const DailyMix: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="daily-mix">
       {dailymix && (
         <div className="daily-mix__container">
           <h2 className="daily-mix__title">{dailymix.strDrink}</h2>
@@ -43,6 +44,7 @@ const DailyMix: React.FC = () => {
           />
         </div>
       )}
+      <DeezerWidget trackId="3135556" />
     </div>
   );
 };

@@ -23,10 +23,10 @@ const Nav = () => (
         </li>
         <li className="header__nav-item">
           <NavLink
-            to="/moviemix"
+            to="/musicmix"
             style={({ isActive }) => ({ color: isActive ? "purple" : "black" })}
           >
-            Cocktail & Movie chooser
+            Cocktail & Music chooser
           </NavLink>
         </li>
       </ul>
