@@ -4,6 +4,7 @@ import {
   MeasureIngredients,
   Cocktail,
 } from "../types/cocktail.types";
+import { getIngredientsArray, getMeasuresArray } from "./cocktail-helpers";
 
 export async function fetchCocktailByIdData(
   id: number
@@ -32,23 +33,10 @@ export async function fetchCocktailByIdData(
       } = cocktailDrink[0];
 
       //filter out null values and place ingredients in an array
-      const ingredientsObject: MeasureIngredients[] = cocktailDrink;
-      const ingredientsArray: string[] = Object.keys(ingredientsObject[0])
-        .filter(
-          (key) =>
-            key.startsWith("strIngredient") &&
-            ingredientsObject[0][key] !== null
-        )
-        .map((key) => ingredientsObject[0][key] as string);
+      const ingredientsArray = getIngredientsArray(cocktailDrink);
 
       //filter out null values and place measures in an array
-      const measuresObject: MeasureIngredients[] = cocktailDrink;
-      const measuresArray: string[] = Object.keys(measuresObject[0])
-        .filter(
-          (key) =>
-            key.startsWith("strMeasure") && measuresObject[0][key] !== null
-        )
-        .map((key) => measuresObject[0][key] as string);
+      const measuresArray = getMeasuresArray(cocktailDrink);
 
       //create return object
       const returnObject: DrinkObject = {
