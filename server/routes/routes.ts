@@ -49,6 +49,10 @@ function addAPIRoutes(app: Express) {
   apiRouter.get("/genre", getGenre);
 
   apiRouter.get("/artist", getArtist);
+  apiRouter.get(
+    "/cocktailsByCategory/:category",
+    cocktailController.getCocktailsByCategory
+  );
 
   console.log("🛠️  Applying API router to Express server...");
   app.use("/api", apiRouter);

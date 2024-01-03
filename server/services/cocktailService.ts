@@ -2,6 +2,7 @@ import {
   DrinkObject,
   CocktailApiResponse,
   MeasureIngredients,
+  Cocktail,
 } from "../types/cocktail.types";
 
 export async function fetchCocktailByIdData(
@@ -95,6 +96,42 @@ export async function fetchRandomCocktailData(): Promise<{
       const { idDrink, strDrink, strInstructions, strDrinkThumb } =
         cocktailDrink[0];
       return { idDrink, strDrink, strInstructions, strDrinkThumb };
+    }
+
+    return null;
+  } catch (error) {
+    console.error("Error fetching cocktail data:", error);
+    return null;
+  }
+}
+
+export async function fetchCocktailsByCategory(
+  requestParam: string
+): Promise<Array<Cocktail> | null> {
+  try {
+    let apiUrl: string;
+
+    if (
+      requestParam === "Non alcoholic" ||
+      requestParam === "Optional alcohol"
+    ) {
+      apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${requestParam}`;
+    } else {
+      apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${requestParam}`;
+    }
+
+    const response = await fetch(apiUrl);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const responseData = (await response.json()) as { drinks: Cocktail[] };
+
+    const shapedData: Array<Cocktail> = responseData.drinks;
+
+    if (responseData) {
+      return shapedData;
     }
 
     return null;
