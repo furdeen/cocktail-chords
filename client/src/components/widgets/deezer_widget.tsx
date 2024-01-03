@@ -5,11 +5,16 @@ type DeezerWidgetProps = {
 };
 
 const DeezerWidget: React.FC<DeezerWidgetProps> = ({ trackId }) => {
-  const [deezerWidget, setDeezerWidget] = useState<string | null>(null);
+  const [deezerWidget, setDeezerWidget] = useState<string | undefined>(
+    undefined
+  );
 
   useEffect(() => {
     if (trackId) {
       setDeezerWidget(`https://widget.deezer.com/widget/dark/track/${trackId}`);
+    } else {
+      // play Daft Punk if nothing else is available
+      setDeezerWidget(`https://widget.deezer.com/widget/dark/track/3135556`);
     }
   }, [trackId]);
 
