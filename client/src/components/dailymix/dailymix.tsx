@@ -19,11 +19,11 @@ const DailyMix: React.FC = () => {
         const response = await fetch(
           "http://localhost:8080/api/randomCocktailSong"
         );
+        console.log("Response status", response.status);
         const data = await response.json();
         setDailymix(data);
       } catch (error) {
-        // Handle error
-        console.log("Error loading random cocktail");
+        console.log("Error loading random cocktail", error);
       }
     };
 
