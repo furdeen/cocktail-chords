@@ -16,7 +16,7 @@ const musicMapping: DrinkGenres = {
   "Optional alcohol": [132, 113, 169],
 };
 
-export function getRandomGenre(
+export function getMappedGenre(
   cocktailCategory: string
 ): MusicGenre | undefined {
   const encodedCategory = encodeURIComponent(cocktailCategory);

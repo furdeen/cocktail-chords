@@ -24,14 +24,16 @@ export async function fetchRandomSong(queryParams: string) {
   }
 }
 
-export const getTrackById = async () => {
+export const getTrackById = async (genreParam: number) => {
   try {
-    const result = await fetch("https://api.deezer.com/genre/132/artists");
+    const result = await fetch(
+      "https://api.deezer.com/genre/&{genreParam}/artists"
+    );
     const deezerAPI = await result.json();
 
-    const ShapedGenreIds = deezerAPI.data.map((genre: Genre) => genre.id);
+    const ShapedArtistsIds = deezerAPI.data.map((artist) => artist.id);
 
-    const randomArtist = getRandomElement(ShapedGenreIds);
+    const randomArtist = getRandomElement(ShapedArtistsIds);
     console.log(randomArtist);
     if (randomArtist !== undefined) {
       const artistDetailsResult = await fetch(
