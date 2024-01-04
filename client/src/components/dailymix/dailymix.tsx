@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import DeezerWidget from "../widgets/deezer_widget";
+import DrinkMusicDetails from "../drink_music_details/drink_music_details";
 
 type DailyMixProps = {
   strDrink: string;
@@ -32,28 +32,7 @@ const DailyMix: React.FC = () => {
 
   return (
     <div className="daily-mix">
-      {dailymix && (
-        <div className="daily-mix__container">
-          <h2 className="daily-mix__title">{dailymix.strDrink}</h2>
-          <p className="daily-mix__instructions">{dailymix.strInstructions}</p>
-          <div className="daily-mix__ingredients">
-            <h3>Ingredients</h3>
-            <ul className="daily-mix__ingredients-list">
-              {dailymix.ingredients.map((ingredient, index) => (
-                <li className="daily-mix__ingredients-list-item" key={index}>
-                  {ingredient} - {dailymix.measures[index]}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <img
-            className="daily-mix__img"
-            src={dailymix.strDrinkThumb}
-            alt={dailymix.strDrink}
-          />
-        </div>
-      )}
-      {dailymix && <DeezerWidget trackId={dailymix.trackId} />}
+      {dailymix && <DrinkMusicDetails {...dailymix} />}
     </div>
   );
 };

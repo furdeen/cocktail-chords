@@ -40,8 +40,21 @@ const MusicMix: React.FC = () => {
     }
   };
 
-  // useEffect(() => {
-  // },[]);
+  const handleDrinkItemClick = async (idDrink: string) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/api/cocktailById/${idDrink}`
+      );
+      if (!response.ok) {
+        throw new Error("Error fetching drink:");
+      }
+      const data = await response.json();
+      setDrinks(data);
+      setSelectedCategory(idDrink);
+    } catch (error) {
+      console.log("Error fetching data:", error);
+    }
+  };
 
   const categoryLinks = Object.keys(categoryMapping).map((category, index) => (
     <a
@@ -59,12 +72,18 @@ const MusicMix: React.FC = () => {
   const renderDrinks = () => {
     return drinks.map((drink) => (
       <li key={drink.idDrink} className="music-mix__drinks-list-item">
-        <img
-          src={drink.strDrinkThumb}
-          alt={drink.strDrink}
-          className="musicmix__drinks-img"
-        />
-        <p>{drink.strDrink}</p>
+        <a
+          href="#"
+          onClick={() => handleDrinkItemClick(drink.idDrink)}
+          className="music-mix__drink-link"
+        >
+          <img
+            src={drink.strDrinkThumb}
+            alt={drink.strDrink}
+            className="musicmix__drinks-img"
+          />
+          <p>{drink.strDrink}</p>
+        </a>
       </li>
     ));
   };
