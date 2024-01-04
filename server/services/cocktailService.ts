@@ -213,9 +213,9 @@ export async function fetchCategoryCocktailSong(cocktailId: number): Promise<{
     const mappedGenre = getMappedGenre(cocktailData.strCategory);
 
     //Get music track from mapped music genre
-    const musicData = await getTrackById(mappedGenre);
+    let musicData = await getTrackById(mappedGenre);
 
-    if (!musicData) musicData.id = 2535353;
+    if (!musicData) musicData = 2535353;
 
     //add music track to cocktail data object
     const mergedData: CocktailMusic = {
