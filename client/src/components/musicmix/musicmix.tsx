@@ -96,7 +96,7 @@ const MusicMix: React.FC = () => {
   };
 
   return (
-    <div>
+    <>
       <h1>Chord &amp; Mix Matchmaker</h1>
       <p>Choose your cocktail and we will match it with the perfect music</p>
 
@@ -112,7 +112,7 @@ const MusicMix: React.FC = () => {
           <ul className="music-mix__drinks-list">{renderDrinks()}</ul>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

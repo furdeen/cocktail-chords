@@ -30,7 +30,12 @@ const DailyMix: React.FC = () => {
     fetchData();
   }, []);
 
-  return <>{dailymix && <DrinkMusicDetails {...dailymix} />}</>;
+  return (
+    <>
+      <h1>Cocktail of the Day</h1>
+      {dailymix && <DrinkMusicDetails {...dailymix} />}
+    </>
+  );
 };
 
 export default DailyMix;
