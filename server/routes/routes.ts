@@ -54,6 +54,11 @@ function addAPIRoutes(app: Express) {
     cocktailController.getRandomCocktailSongData
   );
 
+  apiRouter.get(
+    "/categoryCocktailSong/:id",
+    cocktailController.getCategoryCocktailSong
+  );
+
   apiRouter.get("/genre", getGenre);
 
   apiRouter.get("/artist", getArtist);
