@@ -30,7 +30,7 @@ const MusicMix: React.FC = () => {
         `http://localhost:8080/api/cocktailsByCategory/${category}`
       );
       if (!response.ok) {
-        throw new Error("Network response not good");
+        throw new Error("Error fetching category");
       }
       const data = await response.json();
       setDrinks(data);
