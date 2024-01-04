@@ -3,7 +3,7 @@ import { Express } from "express";
 import * as cocktailController from "../controllers/cocktailcontroller";
 import {
   getArtist,
-  getGenre,
+  getRandomTrack,
   searchRandomSong,
 } from "../controllers/music_controller";
 
@@ -54,7 +54,7 @@ function addAPIRoutes(app: Express) {
     cocktailController.getRandomCocktailSongData
   );
 
-  apiRouter.get("/genre", getGenre);
+  apiRouter.get("/genre", getRandomTrack);
 
   apiRouter.get("/artist", getArtist);
   apiRouter.get(
