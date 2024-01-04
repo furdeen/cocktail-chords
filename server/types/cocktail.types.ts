@@ -90,3 +90,9 @@ export const isValidCategory = (
 
   return validDrinkCategories.includes(category as DrinksCategory);
 };
+
+export type MusicGenre = number;
+
+export type DrinkGenres = {
+  [key: string]: MusicGenre[];
+};
