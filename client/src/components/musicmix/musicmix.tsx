@@ -4,13 +4,13 @@ const categoryMapping = {
   "Ordinary Drink": "Standard Splash",
   Cocktail: "Cocktail Creations",
   Shake: "Shake It Up",
-  "Other Unknown": "Mystery Mix",
+  "Other / Unknown": "Mystery Mix",
   Cocoa: "Cocoa Comfort",
   Shot: "Snap Shot",
   "Coffee / Tea": "Brew Harmony",
   "Homemade Liqueur": "DIY Spirit",
   "Punch / Party Drink": "Party Potion",
-  Beer: "Beer Necessity",
+  beer: "Beer Necessity",
   "Soft Drink": "Soft Sip",
 };
 
@@ -58,12 +58,14 @@ const MusicMix: React.FC = () => {
 
   const renderDrinks = () => {
     return drinks.map((drink) => (
-      <img
-        key={drink.idDrink}
-        src={drink.strDrinkThumb}
-        alt={drink.strDrink}
-        className="musicmix__drinks-img"
-      />
+      <li key={drink.idDrink} className="music-mix__drinks-list-item">
+        <img
+          src={drink.strDrinkThumb}
+          alt={drink.strDrink}
+          className="musicmix__drinks-img"
+        />
+        <p>{drink.strDrink}</p>
+      </li>
     ));
   };
 
@@ -72,19 +74,14 @@ const MusicMix: React.FC = () => {
       <h1>Music Mix</h1>
       <p>Choose your cocktail and we will match it with the perfect music</p>
 
-      <h2>Categories</h2>
       <ul className="music-mix__category">{categoryLinks}</ul>
-
-      {/* <ul className="music-mix__drinks-list-item">
-            <li className="music-mix__drinks-list-item"></li>
-          </ul> */}
 
       {selectedCategory && (
         <div className="music-mix__drinks">
-          <p>
+          <h3 className="music-mix__drinks-title">
             {categoryMapping[selectedCategory as keyof typeof categoryMapping]}
-          </p>
-          <div>{renderDrinks()}</div>
+          </h3>
+          <ul className="music-mix__drinks-list">{renderDrinks()}</ul>
         </div>
       )}
     </div>
