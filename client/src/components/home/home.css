@@ -1,0 +1,18 @@
+.home__text {
+  width: 80%;
+  margin: auto;
+  font-size: 0.9rem;
+}
+
+.home__img-box {
+  visibility: visible;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.home__img {
+  width: 20%;
+  padding: 5px;
+}

@@ -99,7 +99,6 @@ const MusicMix: React.FC = () => {
   return (
     <>
       <h1>Chord &amp; Mix Matchmaker</h1>
-      <p>Choose your cocktail and we will match it with the perfect music</p>
 
       <ul className="music-mix__category">{categoryLinks}</ul>
 
