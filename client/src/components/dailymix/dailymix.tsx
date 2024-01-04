@@ -7,6 +7,7 @@ type DailyMixProps = {
   measures: string[];
   strInstructions: string;
   strDrinkThumb: string;
+  trackId: string;
 };
 
 const DailyMix: React.FC = () => {
@@ -16,7 +17,7 @@ const DailyMix: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8080/api/randomCocktail"
+          "http://localhost:8080/api/randomCocktailSong"
         );
         const data = await response.json();
         setDailymix(data);
@@ -52,7 +53,7 @@ const DailyMix: React.FC = () => {
           />
         </div>
       )}
-      <DeezerWidget trackId="3159453" />
+      {dailymix && <DeezerWidget trackId={dailymix.trackId} />}
     </div>
   );
 };
