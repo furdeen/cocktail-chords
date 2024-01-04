@@ -1,3 +1,5 @@
+import { Genre } from "../types/music.types";
+
 export async function fetchRandomSong(queryParams: string) {
   const deezerResponse = await fetch(
     `https://api.deezer.com/search?q=${queryParams}`
@@ -20,4 +22,42 @@ export async function fetchRandomSong(queryParams: string) {
 
     return tracks[randomTrack].id;
   }
+}
+
+export const getTrackById = async () => {
+  try {
+    const result = await fetch("https://api.deezer.com/genre/132/artists");
+    const deezerAPI = await result.json();
+
+    const ShapedGenreIds = deezerAPI.data.map((genre: Genre) => genre.id);
+
+    const randomArtist = getRandomElement(ShapedGenreIds);
+    console.log(randomArtist);
+    if (randomArtist !== undefined) {
+      const artistDetailsResult = await fetch(
+        `https://api.deezer.com/artist/${randomArtist}/top?limit=50`
+      );
+
+      const artistDetails = await artistDetailsResult.json();
+
+      const shapedTracks = artistDetails.data.map((track) => track.id);
+
+      const randomTrack = getRandomElement(shapedTracks);
+
+      return randomTrack;
+    } else {
+      console.log("error, track has not been found!");
+    }
+  } catch (error) {
+    console.log("there has been an error getting the id's", error);
+  }
+};
+
+function getRandomElement(array: []) {
+  if (array.length === 0) {
+    return undefined;
+  }
+  const randomIndex = Math.floor(Math.random() * array.length);
+
+  return array[randomIndex];
 }
