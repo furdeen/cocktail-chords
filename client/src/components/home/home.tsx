@@ -7,6 +7,7 @@ type HomeProps = {
 
 const Home: React.FC = () => {
   const [randomPhotos, setRandomPhotos] = useState<HomeProps[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     try {
@@ -22,8 +23,10 @@ const Home: React.FC = () => {
       );
       // console.log("Response status", response.status);
       setRandomPhotos(data);
+      setLoading(false);
     } catch (error) {
       console.log("Error loading cocktail image", error);
+      setLoading(false);
     }
   };
 
@@ -34,17 +37,25 @@ const Home: React.FC = () => {
   return (
     <>
       <h1>Welcome</h1>
-      <main></main>
-      <div className="home__image-box">
-        {randomPhotos.map((photo, index) => (
-          <img
-            key={index}
-            className="home__img"
-            src={photo.strDrinkThumb}
-            alt={photo.strDrinkThumb}
-          />
-        ))}
-      </div>
+      <section className="home__text">
+        Discover the Cocktail of the Day - enjoy a randomly selected cocktail
+        paired with a matching song. Alternatively, select your preferred
+        cocktail, and we'll find the ideal music to complement your choice.
+      </section>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className="home__image-box">
+          {randomPhotos.map((photo, index) => (
+            <img
+              key={index}
+              className="home__img"
+              src={photo.strDrinkThumb}
+              alt={photo.strDrinkThumb}
+            />
+          ))}
+        </div>
+      )}
     </>
   );
 };
