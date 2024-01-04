@@ -46,7 +46,6 @@ export async function getRandomCocktailData(req: Request, res: Response) {
 }
 
 export async function getCocktailsByCategory(req: Request, res: Response) {
-  console.log("inside controller");
   const requestParam = req.params.category;
 
   if (!isValidCategory(requestParam)) {
