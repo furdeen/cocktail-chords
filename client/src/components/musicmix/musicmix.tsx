@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DrinkMusicDetails, {
   DrinkMusicDetailsProps,
 } from "../drink_music_details/drink_music_details";
@@ -50,7 +50,7 @@ const MusicMix: React.FC = () => {
   const handleDrinkItemClick = async (idDrink: string) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/cocktailById/${idDrink}`
+        `http://localhost:8080/api/CategoryCocktailSong/${idDrink}`
       );
       if (!response.ok) {
         throw new Error("Error fetching drink:");
