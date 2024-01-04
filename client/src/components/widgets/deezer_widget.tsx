@@ -27,7 +27,7 @@ const DeezerWidget: React.FC<DeezerWidgetProps> = ({ trackId }) => {
         width="100%"
         frameBorder="0"
         height="300"
-        allow="encrypted-media; clipboard-write"
+        allow="encrypted-media; clipboard-write; accelerometer; gyroscope"
       ></iframe>
     </div>
   );
