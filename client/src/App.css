@@ -2,240 +2,26 @@
   margin: 0 auto;
   text-align: center;
   height: 100dvh;
-}
+  width: 100dvw;
 
-.header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 90dvw;
-  height: 5rem;
-  outline: solid black;
-  border-radius: 20px;
-  margin: 1rem auto;
-}
+  --primary-color: #1da6a6;
+  --secondary-color: #f2be22;
+  --main-background-color: linear-gradient(0deg, #f3f0e7 30%, #f0e4da 76%);
+  --background-color: #e8e8e1;
+  --text-color: #333;
+  --link-color: #333;
+  --link-accent-color: #fff;
+  --accent-color: #f23005;
+  --border-color: #ccc;
 
-.header__title {
-  /* outline: blue solid; */
-  font-size: 1rem;
-  width: 20%;
-}
-
-.header__nav {
-  /* outline: green solid; */
-  flex: 80%;
-}
-
-.header__nav-list {
-  /* outline: orange dotted; */
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.header__nav-item {
-  margin-right: 10px;
-  text-decoration: none;
-  font-size: 1rem;
-}
-
-.header__nav-item:last-child {
-  margin-right: 0;
-}
-
-/* Nav menu */
-/* Hamburger Icon */
-.header__nav-icon {
-  display: none;
-  order: 3;
-  cursor: pointer;
-  font-size: 24px;
-}
-
-/* Ensure proper order of elements for responsiveness */
-.header__title {
-  /* outline: blue solid; */
-  font-size: 1rem;
-  width: 20%;
-  order: 1;
-}
-
-.header__nav {
-  /* outline: green solid; */
-  flex: 1;
-  order: 2;
-}
-
-/* Hide checkbox */
-.header__nav-toggle-input {
-  display: none;
-}
-
-/* Nav styles */
-.header__nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.header__nav-item {
-  margin-bottom: 10px;
-}
-
-.header__nav-link {
-  text-decoration: none;
-  color: black;
-}
-
-/* Daily Mix */
-.daily-mix {
-  display: flex;
-  width: 90dvw;
-  justify-content: space-around;
-  background-color: #ededd4;
-}
-
-.daily-mix__container {
-  width: 42dvw;
-  background-color: #ededd4;
-}
-
-/* .daily-mix__title {
-} */
-
-/* .daily-mix__instructions {
-} */
-
-/* .daily-mix__ingredients {
- 
-} */
-
-.daily-mix__ingredients-list {
-  list-style: none;
-}
-
-/* .daily-mix__measures {
-
-} */
-
-.daily-mix__img {
-  width: 30%;
-  padding-bottom: 10px;
+  background-color: var(--main-background-color);
 }
 
 .deezer__iframe {
   padding-top: 2rem;
 }
 
-/* music mix page */
-.music-mix__drinks-title {
+/* main styles */
+.main-header {
   font-size: 2rem;
-}
-
-.music-mix__category {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 5px;
-}
-
-.music-mix__category-item {
-  margin: 2px;
-}
-
-.music-mix__category-link {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f0f0f0;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 0 3px 6px;
-  transition: background-color 0.3s ease;
-}
-
-.music-mix__category-link:hover {
-  background-color: #ccc;
-}
-
-.musicmix__drinks-img {
-  width: 200px;
-}
-
-.music-mix__drinks-list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 100%;
-  padding: 0;
-  margin: auto 0;
-  justify-content: center;
-}
-
-.music-mix__drinks-list-item {
-  width: 200px;
-  margin: 3px;
-}
-
-/* Responsive styles */
-@media screen and (max-width: 768px) {
-  .header__nav-icon {
-    display: block;
-    order: 2;
-    margin-left: auto;
-    padding-right: 1em;
-  }
-
-  .header__nav-list {
-    display: none;
-  }
-
-  .header__nav-toggle-input:checked + .header__nav-list {
-    display: block;
-  }
-
-  /* .header__nav-toggle-input:checked + .header__nav-icon {
-   
-  } */
-
-  .header__nav {
-    display: none;
-  }
-
-  .header__nav-list {
-    display: block;
-    text-align: center;
-  }
-
-  .header__nav-item {
-    margin-bottom: 10px;
-    display: block;
-  }
-
-  .header__nav-link {
-    text-decoration: none;
-    color: black;
-  }
-
-  .header__nav-toggle-input:checked + .header__nav {
-    display: block;
-  }
-
-  .header__nav--visible {
-    display: block;
-    position: absolute;
-    top: 10%;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    padding: 10px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
 }

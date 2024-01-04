@@ -13,28 +13,24 @@ type DailyMixProps = {
 const DailyMix: React.FC = () => {
   const [dailymix, setDailymix] = useState<DailyMixProps | null>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "http://localhost:8080/api/randomCocktailSong"
-        );
-        console.log("Response status", response.status);
-        const data = await response.json();
-        setDailymix(data);
-      } catch (error) {
-        console.log("Error loading random cocktail", error);
-      }
-    };
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:8080/api/randomCocktailSong"
+      );
+      console.log("Response status", response.status);
+      const data = await response.json();
+      setDailymix(data);
+    } catch (error) {
+      console.log("Error loading random cocktail", error);
+    }
+  };
 
+  useEffect(() => {
     fetchData();
   }, []);
 
-  return (
-    <div className="daily-mix">
-      {dailymix && <DrinkMusicDetails {...dailymix} />}
-    </div>
-  );
+  return <>{dailymix && <DrinkMusicDetails {...dailymix} />}</>;
 };
 
 export default DailyMix;

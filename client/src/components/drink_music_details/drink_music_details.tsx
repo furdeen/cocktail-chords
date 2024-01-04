@@ -1,4 +1,5 @@
 import DeezerWidget from "../widgets/deezer_widget";
+import "./drink_music_details.css";
 
 export type DrinkMusicDetailsProps = {
   strDrink: string;
@@ -18,21 +19,21 @@ const DrinkMusicDetails: React.FC<DrinkMusicDetailsProps> = ({
   trackId,
 }) => {
   return (
-    <div className="drink-music__container">
-      <div className="daily-mix__container">
-        <h2 className="daily-mix__title">{strDrink}</h2>
-        <p className="daily-mix__instructions">{strInstructions}</p>
-        <div className="daily-mix__ingredients">
+    <div className="drink-music">
+      <div className="drink-music__container">
+        <h2 className="drink-music__title">{strDrink}</h2>
+        <p className="drink-music__instructions">{strInstructions}</p>
+        <div className="drink-music__ingredients">
           <h3>Ingredients</h3>
-          <ul className="daily-mix__ingredients-list">
+          <ul className="drink-music__ingredients-list">
             {ingredients.map((ingredient, index) => (
-              <li className="daily-mix__ingredients-list-item" key={index}>
+              <li className="drink-music__ingredients-list-item" key={index}>
                 {ingredient} - {measures[index]}
               </li>
             ))}
           </ul>
         </div>
-        <img className="daily-mix__img" src={strDrinkThumb} alt={strDrink} />
+        <img className="drink-music__img" src={strDrinkThumb} alt={strDrink} />
       </div>
 
       <DeezerWidget trackId={trackId} />

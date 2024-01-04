@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Nav from "./nav";
+import "./header.css";
 
 const Header: React.FC = () => {
   useEffect(() => {

@@ -19,7 +19,7 @@ const DeezerWidget: React.FC<DeezerWidgetProps> = ({ trackId }) => {
   }, [trackId]);
 
   return (
-    <div className="daily-mix__container">
+    <div className="drink-music__container">
       <iframe
         className="deezer__iframe"
         title="deezer-widget"
