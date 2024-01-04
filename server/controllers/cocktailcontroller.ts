@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import * as CocktailService from "../services/cocktailService";
 import { RandomCocktail, isValidCategory } from "../types/cocktail.types";
-import { getRandomGenre } from "./utility-functions";
 
 export async function getCocktailByIdData(req: Request, res: Response) {
   const id = req.params.id;
@@ -94,22 +93,14 @@ export async function getCategoryCocktailSong(req: Request, res: Response) {
     return;
   }
   try {
-    const cocktailData = await CocktailService.fetchCocktailByIdData(
+    const cocktailSongData = await CocktailService.fetchCategoryCocktailSong(
       requestedId
     );
-    //Get music genre mapped to cocktail category
-    const mappedGenre = getRandomGenre(cocktailData.strCategory);
-    console.log(
-      `Cocktailcategory ${cocktailData.strCategory} mapped to genre ${mappedGenre}`
-    );
-    //call function to get song from music genre
-    /**********************TODO************************* */
-    //const musicDate = await getSongFromGenre(mappedGgenre)
 
-    if (cocktailData) {
-      res.status(200).json(cocktailData);
+    if (cocktailSongData) {
+      res.status(200).json(cocktailSongData);
     } else {
-      res.status(404).json({ error: "Cocktail not found" });
+      res.status(404).json({ error: "Cocktail and track not found" });
     }
   } catch (error) {
     console.error(error);
