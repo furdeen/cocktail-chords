@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import DrinkMusicDetails, {
+  DrinkMusicDetailsProps,
+} from "../drink_music_details/drink_music_details";
 
 const categoryMapping = {
   "Ordinary Drink": "Standard Splash",
@@ -21,6 +24,8 @@ type Drink = {
 };
 
 const MusicMix: React.FC = () => {
+  const [selectedDrink, setSelectedDrink] =
+    useState<DrinkMusicDetailsProps | null>(null);
   const [drinks, setDrinks] = useState<Drink[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
@@ -35,6 +40,7 @@ const MusicMix: React.FC = () => {
       const data = await response.json();
       setDrinks(data);
       setSelectedCategory(category);
+      setSelectedDrink(null);
     } catch (error) {
       console.log("Error fetching data:", error);
     }
@@ -49,10 +55,11 @@ const MusicMix: React.FC = () => {
         throw new Error("Error fetching drink:");
       }
       const data = await response.json();
-      setDrinks(data);
-      setSelectedCategory(idDrink);
+      // setDrinks(null);
+      setSelectedCategory(null);
+      setSelectedDrink(data);
     } catch (error) {
-      console.log("Error fetching data:", error);
+      console.log("Error fetching id for drink and music data:", error);
     }
   };
 
@@ -94,6 +101,8 @@ const MusicMix: React.FC = () => {
       <p>Choose your cocktail and we will match it with the perfect music</p>
 
       <ul className="music-mix__category">{categoryLinks}</ul>
+
+      {selectedDrink && <DrinkMusicDetails {...selectedDrink} />}
 
       {selectedCategory && (
         <div className="music-mix__drinks">

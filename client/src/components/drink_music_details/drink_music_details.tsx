@@ -1,6 +1,6 @@
 import DeezerWidget from "../widgets/deezer_widget";
 
-type DrinkMusicDetailsProps = {
+export type DrinkMusicDetailsProps = {
   strDrink: string;
   ingredients: string[];
   measures: string[];
