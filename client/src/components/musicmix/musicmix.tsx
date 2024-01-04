@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import DrinkMusicDetails, {
   DrinkMusicDetailsProps,
 } from "../drink_music_details/drink_music_details";
+import "./musicmix.css";
 
 const categoryMapping = {
   "Ordinary Drink": "Standard Splash",
@@ -55,7 +56,6 @@ const MusicMix: React.FC = () => {
         throw new Error("Error fetching drink:");
       }
       const data = await response.json();
-      // setDrinks(null);
       setSelectedCategory(null);
       setSelectedDrink(data);
     } catch (error) {
@@ -97,7 +97,7 @@ const MusicMix: React.FC = () => {
 
   return (
     <div>
-      <h1>Music Mix</h1>
+      <h1>Chord &amp; Mix Matchmaker</h1>
       <p>Choose your cocktail and we will match it with the perfect music</p>
 
       <ul className="music-mix__category">{categoryLinks}</ul>

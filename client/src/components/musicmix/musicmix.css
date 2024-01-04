@@ -1,0 +1,53 @@
+.music-mix__drinks-title {
+  font-size: 2rem;
+}
+
+.music-mix__category {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 5px;
+}
+
+.music-mix__category-item {
+  margin: 2px;
+}
+
+.music-mix__category-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 3px 6px;
+  transition: background-color 0.3s ease;
+}
+
+.music-mix__category-link:hover {
+  background-color: var(--accent-color);
+  color: var(--link-accent-color);
+}
+
+.musicmix__drinks-img {
+  width: 200px;
+}
+
+.music-mix__drinks-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  padding: 0;
+  margin: auto 0;
+  justify-content: center;
+}
+
+.music-mix__drinks-list-item {
+  width: 200px;
+  margin: 3px;
+}

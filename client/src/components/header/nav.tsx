@@ -26,7 +26,7 @@ const Nav = () => (
             to="/musicmix"
             style={({ isActive }) => ({ color: isActive ? "purple" : "black" })}
           >
-            Cocktail & Music chooser
+            Chord &amp; Mix Matchmaker
           </NavLink>
         </li>
       </ul>

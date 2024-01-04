@@ -1,0 +1,43 @@
+.drink-music {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--background-color);
+}
+
+.drink-music__container {
+  width: 42dvw;
+}
+
+/* .drink-music__title {
+  } */
+
+/* .drink-music__instructions {
+  } */
+
+/* .drink-music__ingredients {
+   
+  } */
+
+.drink-music__ingredients-list {
+  list-style: none;
+}
+
+/* .drink-music__measures {
+  
+  } */
+
+.drink-music__img {
+  width: 30%;
+  padding-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .drink-music {
+    flex-direction: column;
+  }
+
+  .drink-music__container {
+    width: auto;
+    padding: 10px;
+  }
+}
