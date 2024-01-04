@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import DrinkMusicDetails, {
+  DrinkMusicDetailsProps,
+} from "../drink_music_details/drink_music_details";
 
 const categoryMapping = {
   "Ordinary Drink": "Standard Splash",
@@ -21,6 +24,8 @@ type Drink = {
 };
 
 const MusicMix: React.FC = () => {
+  const [selectedDrink, setSelectedDrink] =
+    useState<DrinkMusicDetailsProps | null>(null);
   const [drinks, setDrinks] = useState<Drink[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
@@ -30,18 +35,33 @@ const MusicMix: React.FC = () => {
         `http://localhost:8080/api/cocktailsByCategory/${category}`
       );
       if (!response.ok) {
-        throw new Error("Network response not good");
+        throw new Error("Error fetching category");
       }
       const data = await response.json();
       setDrinks(data);
       setSelectedCategory(category);
+      setSelectedDrink(null);
     } catch (error) {
       console.log("Error fetching data:", error);
     }
   };
 
-  // useEffect(() => {
-  // },[]);
+  const handleDrinkItemClick = async (idDrink: string) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/api/cocktailById/${idDrink}`
+      );
+      if (!response.ok) {
+        throw new Error("Error fetching drink:");
+      }
+      const data = await response.json();
+      // setDrinks(null);
+      setSelectedCategory(null);
+      setSelectedDrink(data);
+    } catch (error) {
+      console.log("Error fetching id for drink and music data:", error);
+    }
+  };
 
   const categoryLinks = Object.keys(categoryMapping).map((category, index) => (
     <a
@@ -59,12 +79,18 @@ const MusicMix: React.FC = () => {
   const renderDrinks = () => {
     return drinks.map((drink) => (
       <li key={drink.idDrink} className="music-mix__drinks-list-item">
-        <img
-          src={drink.strDrinkThumb}
-          alt={drink.strDrink}
-          className="musicmix__drinks-img"
-        />
-        <p>{drink.strDrink}</p>
+        <a
+          href="#"
+          onClick={() => handleDrinkItemClick(drink.idDrink)}
+          className="music-mix__drink-link"
+        >
+          <img
+            src={drink.strDrinkThumb}
+            alt={drink.strDrink}
+            className="musicmix__drinks-img"
+          />
+          <p>{drink.strDrink}</p>
+        </a>
       </li>
     ));
   };
@@ -75,6 +101,8 @@ const MusicMix: React.FC = () => {
       <p>Choose your cocktail and we will match it with the perfect music</p>
 
       <ul className="music-mix__category">{categoryLinks}</ul>
+
+      {selectedDrink && <DrinkMusicDetails {...selectedDrink} />}
 
       {selectedCategory && (
         <div className="music-mix__drinks">
