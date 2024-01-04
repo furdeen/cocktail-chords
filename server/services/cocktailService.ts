@@ -102,6 +102,7 @@ export async function fetchCocktailsByCategory(
 ): Promise<Array<Cocktail> | null> {
   try {
     let apiUrl: string;
+    const categoryParam = encodeURIComponent(requestParam);
 
     if (
       requestParam === "Non alcoholic" ||
@@ -109,7 +110,7 @@ export async function fetchCocktailsByCategory(
     ) {
       apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${requestParam}`;
     } else {
-      apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${requestParam}`;
+      apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${categoryParam}`;
     }
 
     const response = await fetch(apiUrl);

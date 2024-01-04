@@ -14,7 +14,7 @@ const categoryMapping = {
   "Coffee / Tea": "Brew Harmony",
   "Homemade Liqueur": "DIY Spirit",
   "Punch / Party Drink": "Party Potion",
-  beer: "Beer Necessity",
+  Beer: "Beer Necessity",
   "Soft Drink": "Soft Sip",
 };
 
@@ -32,8 +32,9 @@ const MusicMix: React.FC = () => {
 
   const handleCategoryClick = async (category: string) => {
     try {
+      const categoryTest = encodeURIComponent(category);
       const response = await fetch(
-        `http://localhost:8080/api/cocktailsByCategory/${category}`
+        `http://localhost:8080/api/cocktailsByCategory/${categoryTest}`
       );
       if (!response.ok) {
         throw new Error("Error fetching category");
