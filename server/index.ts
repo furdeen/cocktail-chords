@@ -30,24 +30,39 @@ try {
       );
       printNewLine();
       console.log(
-        `🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸`
+        "🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸"
       );
       console.log(
-        `🍸    Health check at "http://localhost:${PORT}/health"            🍸`
-      );
-      console.log(
-        `🍸    Or try "http://localhost:${PORT}/api/randomCocktail"        🍸`
-      );
-      console.log(
-        `🍸    Or try "http://localhost:${PORT}/api/cocktailById/11007"        🍸`
+        `🎸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🎸`
       );
 
       console.log(
-        `🍸    Or try "http://localhost:${PORT}/api/cocktailsByCategory/Shot"        🍸`
+        `🎸🍸    Health check at "http://localhost:${PORT}/health"                        🍸🎸`
       );
 
       console.log(
-        `🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸`
+        `🎸🍸    Or try "http://localhost:${PORT}/api/randomCocktail"                     🍸🎸`
+      );
+
+      console.log(
+        `🎸🍸    Or try "http://localhost:${PORT}/api/cocktailById/11007"                 🍸🎸`
+      );
+      console.log(
+        `🎸🍸    Or try "http://localhost:${PORT}/api//cocktailsByCategory/Shot"          🍸🎸`
+      );
+
+      console.log(
+        `🎸🍸    Or try "http://localhost:${PORT}/api/randomCocktailSong"                 🍸🎸`
+      );
+      console.log(
+        `🎸🍸    Or try "http://localhost:${PORT}/api/categoryCocktailSong/:id""          🍸🎸`
+      );
+
+      console.log(
+        `🎸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🍸🎸`
+      );
+      console.log(
+        "🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸"
       );
     })
     .on("error", (error) => {

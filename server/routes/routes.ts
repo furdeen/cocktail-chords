@@ -32,32 +32,38 @@ function addHealthCheck(app: Express) {
   app.use("/", baseRouter);
 }
 
-// this function adds all the routes we can access by going to /api/[someRoute]
+// this function adds all the routes that can be accessed by going to /api/[someRoute]
 function addAPIRoutes(app: Express) {
   console.log("🛠️  Creating API router...");
 
   const apiRouter = express.Router();
   apiRouter.use((req, res, next) => {
-    // we'll use this router to return specifically JSON
     res.setHeader("Content-Type", "application/json");
     next();
   });
 
+  //endpoint returns data for a single cocktail matching the id query parameter
   apiRouter.get("/cocktailById/:id", cocktailController.getCocktailByIdData);
 
+  //endpoint returns data for a randomly selected cocktail
   apiRouter.get("/randomCocktail/", cocktailController.getRandomCocktailData);
+
+  //endpoint returns cocktails in the category matching the category query parameter
+  apiRouter.get(
+    "/cocktailsByCategory/:category",
+    cocktailController.getCocktailsByCategory
+  );
+
+  //endpoint returns a random cocktail and random song linked to the cocktail name
   apiRouter.get(
     "/randomCocktailSong/",
     cocktailMusicController.getRandomCocktailSongData
   );
+
+  //endpoint returns user selected category cocktail with song track based on category and music genre mapping
   apiRouter.get(
     "/categoryCocktailSong/:id",
     cocktailMusicController.getCategoryCocktailSong
-  );
-
-  apiRouter.get(
-    "/cocktailsByCategory/:category",
-    cocktailController.getCocktailsByCategory
   );
 
   console.log("🛠️  Applying API router to Express server...");
