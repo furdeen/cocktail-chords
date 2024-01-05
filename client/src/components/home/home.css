@@ -1,7 +1,6 @@
 .home__text {
   width: 80%;
   margin: auto;
-  font-size: 0.9rem;
 }
 
 .home__img-box {
@@ -10,6 +9,7 @@
   flex-direction: row;
   flex-flow: row;
   justify-content: center;
+  margin: 15px auto 0;
 }
 
 .home__img {

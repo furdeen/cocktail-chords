@@ -5,7 +5,6 @@
 .music-mix__text {
   width: 80%;
   margin: auto;
-  font-size: 0.9rem;
 }
 
 .music-mix__category {
@@ -43,6 +42,18 @@
 
 .musicmix__drinks-img {
   width: 200px;
+}
+
+.music-mix__drink-link {
+  text-decoration: none;
+  color: var(--link-color);
+  font-size: 1.2rem;
+  padding-bottom: 0;
+}
+
+.music-mix__drink-text {
+  padding: 0;
+  background-color: #ffffffae;
 }
 
 .music-mix__drinks-list {

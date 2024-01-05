@@ -92,7 +92,7 @@ const MusicMix: React.FC = () => {
             alt={drink.strDrink}
             className="musicmix__drinks-img"
           />
-          <p>{drink.strDrink}</p>
+          <p className="music-mix__drink-text">{drink.strDrink}</p>
         </a>
       </li>
     ));

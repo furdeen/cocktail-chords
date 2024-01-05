@@ -45,7 +45,7 @@ const Home: React.FC = () => {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="home__image-box">
+        <div className="home__img-box">
           {randomPhotos.map((photo, index) => (
             <img
               key={index}
