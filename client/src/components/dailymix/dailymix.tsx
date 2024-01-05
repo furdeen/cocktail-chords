@@ -21,6 +21,7 @@ const DailyMix: React.FC = () => {
       console.log("Response status", response.status);
       const data = await response.json();
       setDailymix(data);
+      console.log("details: ", data);
     } catch (error) {
       console.log("Error loading random cocktail", error);
     }
@@ -32,7 +33,7 @@ const DailyMix: React.FC = () => {
 
   return (
     <>
-      <h1>Cocktail of the Day</h1>
+      <h1 className="main-header">Cocktail of the Day</h1>
       {dailymix && <DrinkMusicDetails {...dailymix} />}
     </>
   );
