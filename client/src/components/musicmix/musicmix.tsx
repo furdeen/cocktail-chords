@@ -17,7 +17,7 @@ const categoryMapping = {
   Beer: "Beer Necessity",
   "Soft Drink": "Soft Sip",
   "Non alcoholic": "Non alcoholic",
-  "Optional alcohol": "Optional alchohol",
+  "Optional alcohol": "Optional alcohol",
 };
 
 type Drink = {
