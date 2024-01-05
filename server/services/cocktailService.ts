@@ -2,17 +2,13 @@ import { isAbsolute } from "path/posix";
 import {
   DrinkObject,
   CocktailApiResponse,
-  MeasureIngredients,
   Cocktail,
-  CocktailMusic,
 } from "../types/cocktail.types";
 import { getIngredientsArray, getMeasuresArray } from "./cocktail-helpers";
-import { fetchRandomSong, getTrackById } from "./musicService";
-import { getMappedGenre } from "./utility-functions";
 
 export async function fetchCocktailByIdData(
   id: number
-): Promise<DrinkObject | null> {
+): Promise<DrinkObject | undefined> {
   try {
     const response = await fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
@@ -58,88 +54,16 @@ export async function fetchCocktailByIdData(
       return returnObject;
     }
 
-    return null;
+    return undefined;
   } catch (error) {
     console.error("Error fetching cocktail data:", error);
-    return null;
+    return undefined;
   }
 }
 
-export async function fetchRandomCocktailData(): Promise<{
-  idDrink: string;
-  strDrink: string;
-  strInstructions: string;
-  strDrinkThumb: string;
-} | null> {
-  try {
-    const response = await fetch(
-      `https://www.thecocktaildb.com/api/json/v1/1/random.php`
-    );
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const responseData: CocktailApiResponse = await response.json();
-
-    const cocktailDrink = responseData.drinks;
-
-    if (cocktailDrink) {
-      const { idDrink, strDrink, strInstructions, strDrinkThumb } =
-        cocktailDrink[0];
-      return { idDrink, strDrink, strInstructions, strDrinkThumb };
-    }
-
-    return null;
-  } catch (error) {
-    console.error("Error fetching cocktail data:", error);
-    return null;
-  }
-}
-
-export async function fetchCocktailsByCategory(
-  requestParam: string
-): Promise<Array<Cocktail> | null> {
-  try {
-    let apiUrl: string;
-    const categoryParam = encodeURIComponent(requestParam);
-
-    if (
-      requestParam === "Non alcoholic" ||
-      requestParam === "Optional alcohol"
-    ) {
-      apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${requestParam}`;
-    } else {
-      apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${categoryParam}`;
-    }
-
-    const response = await fetch(apiUrl);
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const responseData = (await response.json()) as { drinks: Cocktail[] };
-
-    const shapedData: Array<Cocktail> = responseData.drinks;
-
-    if (responseData) {
-      return shapedData;
-    }
-
-    return null;
-  } catch (error) {
-    console.error("Error fetching cocktail data:", error);
-    return null;
-  }
-}
-
-export async function fetchRandomCocktailSongData(): Promise<{
-  idDrink: string;
-  strDrink: string;
-  strInstructions: string;
-  strDrinkThumb: string;
-} | null> {
+export async function fetchRandomCocktailData(): Promise<
+  DrinkObject | undefined
+> {
   try {
     const response = await fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/random.php`
@@ -170,11 +94,8 @@ export async function fetchRandomCocktailSongData(): Promise<{
       //filter out null values and place measures in an array
       const measuresArray = getMeasuresArray(cocktailDrink);
 
-      const musicTrack = await fetchRandomSong(strDrink);
-      console.log(musicTrack);
-
       //create return object
-      const returnObject: CocktailMusic = {
+      const randomCocktail: DrinkObject = {
         idDrink: idDrink,
         strDrink: strDrink,
         strCategory: strCategory,
@@ -184,57 +105,49 @@ export async function fetchRandomCocktailSongData(): Promise<{
         strDrinkThumb: strDrinkThumb,
         ingredients: ingredientsArray,
         measures: measuresArray,
-        trackId: musicTrack,
       };
-
-      return returnObject;
+      return randomCocktail;
     }
-
-    return null;
+    return undefined;
   } catch (error) {
     console.error("Error fetching cocktail data:", error);
-    return null;
+    return undefined;
   }
 }
-export async function fetchCategoryCocktailSong(cocktailId: number): Promise<{
-  idDrink: string;
-  strDrink: string;
-  strInstructions: string;
-  strDrinkThumb: string;
-} | null> {
+
+export async function fetchCocktailsByCategory(
+  requestParam: string
+): Promise<Array<Cocktail> | undefined> {
   try {
-    //Get cocktail data user selected from category page
-    const cocktailData = await fetchCocktailByIdData(cocktailId);
+    let apiUrl: string;
+    const categoryParam = encodeURIComponent(requestParam);
 
-    if (!cocktailData) {
-      console.error(`HTTP error!`);
-      return null;
+    if (
+      requestParam === "Non alcoholic" ||
+      requestParam === "Optional alcohol"
+    ) {
+      apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${requestParam}`;
+    } else {
+      apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${categoryParam}`;
     }
-    //Get music genre mapped to cocktail category
-    const mappedGenre = getMappedGenre(cocktailData.strCategory);
 
-    //Get music track from mapped music genre
-    let musicData = await getTrackById(mappedGenre);
+    const response = await fetch(apiUrl);
 
-    if (!musicData) musicData = 2535353;
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
 
-    //add music track to cocktail data object
-    const mergedData: CocktailMusic = {
-      idDrink: cocktailData.idDrink,
-      strDrink: cocktailData.strDrink,
-      strCategory: cocktailData.strCategory,
-      strAlcoholic: cocktailData.strAlcoholic,
-      strGlass: cocktailData.strGlass,
-      strInstructions: cocktailData.strInstructions,
-      strDrinkThumb: cocktailData.strDrinkThumb,
-      ingredients: cocktailData.ingredients,
-      measures: cocktailData.measures,
-      trackId: musicData,
-    };
+    const responseData = (await response.json()) as { drinks: Cocktail[] };
 
-    return mergedData;
+    const shapedData: Array<Cocktail> = responseData.drinks;
+
+    if (responseData) {
+      return shapedData;
+    }
+
+    return undefined;
   } catch (error) {
     console.error("Error fetching cocktail data:", error);
-    return null;
+    return undefined;
   }
 }
