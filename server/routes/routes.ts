@@ -1,6 +1,7 @@
 import * as express from "express";
 import { Express } from "express";
 import * as cocktailController from "../controllers/cocktailcontroller";
+import * as cocktailMusicController from "../controllers/cocktailMusic-controller";
 import { getRandomTrack } from "../controllers/music_controller";
 
 export function initialiseRoutes(app: Express) {
@@ -47,11 +48,11 @@ function addAPIRoutes(app: Express) {
   apiRouter.get("/randomCocktail/", cocktailController.getRandomCocktailData);
   apiRouter.get(
     "/randomCocktailSong/",
-    cocktailController.getRandomCocktailSongData
+    cocktailMusicController.getRandomCocktailSongData
   );
   apiRouter.get(
     "/categoryCocktailSong/:id",
-    cocktailController.getCategoryCocktailSong
+    cocktailMusicController.getCategoryCocktailSong
   );
 
   apiRouter.get(
