@@ -98,7 +98,7 @@ const MusicMix: React.FC = () => {
 
   return (
     <>
-      <h1>Chord &amp; Mix Matchmaker</h1>
+      <h1 className="main-header">Chord &amp; Mix Matchmaker</h1>
 
       <ul className="music-mix__category">{categoryLinks}</ul>
 

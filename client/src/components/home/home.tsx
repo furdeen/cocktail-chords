@@ -36,7 +36,7 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <h1>Welcome</h1>
+      <h1 className="main-header">Welcome</h1>
       <section className="home__text">
         Discover the Cocktail of the Day - enjoy a randomly selected cocktail
         paired with a matching song. Alternatively, select your preferred
