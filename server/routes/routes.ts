@@ -1,6 +1,7 @@
 import * as express from "express";
 import { Express } from "express";
 import * as cocktailController from "../controllers/cocktailcontroller";
+import * as cocktailMusicController from "../controllers/cocktailMusic-controller";
 import { getRandomTrack } from "../controllers/music_controller";
 
 export function initialiseRoutes(app: Express) {
@@ -56,13 +57,13 @@ function addAPIRoutes(app: Express) {
   //endpoint returns a random cocktail and random song linked to the cocktail name
   apiRouter.get(
     "/randomCocktailSong/",
-    cocktailController.getRandomCocktailSongData
+    cocktailMusicController.getRandomCocktailSongData
   );
 
   //endpoint returns user selected category cocktail with song track based on category and music genre mapping
   apiRouter.get(
     "/categoryCocktailSong/:id",
-    cocktailController.getCategoryCocktailSong
+    cocktailMusicController.getCategoryCocktailSong
   );
 
   console.log("🛠️  Applying API router to Express server...");
