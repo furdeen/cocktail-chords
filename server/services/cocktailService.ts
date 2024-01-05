@@ -8,7 +8,7 @@ import { getIngredientsArray, getMeasuresArray } from "./cocktail-helpers";
 
 export async function fetchCocktailByIdData(
   id: number
-): Promise<DrinkObject | null> {
+): Promise<DrinkObject | undefined> {
   try {
     const response = await fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
@@ -54,10 +54,10 @@ export async function fetchCocktailByIdData(
       return returnObject;
     }
 
-    return null;
+    return undefined;
   } catch (error) {
     console.error("Error fetching cocktail data:", error);
-    return null;
+    return undefined;
   }
 }
 
@@ -117,7 +117,7 @@ export async function fetchRandomCocktailData(): Promise<
 
 export async function fetchCocktailsByCategory(
   requestParam: string
-): Promise<Array<Cocktail> | null> {
+): Promise<Array<Cocktail> | undefined> {
   try {
     let apiUrl: string;
     const categoryParam = encodeURIComponent(requestParam);
@@ -145,9 +145,9 @@ export async function fetchCocktailsByCategory(
       return shapedData;
     }
 
-    return null;
+    return undefined;
   } catch (error) {
     console.error("Error fetching cocktail data:", error);
-    return null;
+    return undefined;
   }
 }
