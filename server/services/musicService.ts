@@ -13,7 +13,7 @@ export async function fetchRandomSong(queryParams: string) {
 
   if (deezerData) {
     const tracks = deezerData.data;
-    console.log("dezzerlength", tracks.length);
+
     const totalTracks = tracks.length;
 
     //if the keyword does not return any tracks, the length will be 0

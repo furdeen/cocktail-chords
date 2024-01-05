@@ -42,14 +42,14 @@ export async function fetchRandomCocktailSongData(): Promise<
 
 export async function fetchCategoryCocktailSong(
   cocktailId: number
-): Promise<CocktailMusic | null> {
+): Promise<CocktailMusic | undefined> {
   try {
     //Get cocktail data user selected from category page
     const cocktailData = await fetchCocktailByIdData(cocktailId);
 
     if (!cocktailData) {
       console.error(`HTTP error!`);
-      return null;
+      return undefined;
     }
     //Get music genre mapped to cocktail category
     const mappedGenre = getMappedGenre(cocktailData.strCategory);
@@ -76,6 +76,6 @@ export async function fetchCategoryCocktailSong(
     return mergedData;
   } catch (error) {
     console.error("Error fetching cocktail data:", error);
-    return null;
+    return undefined;
   }
 }
