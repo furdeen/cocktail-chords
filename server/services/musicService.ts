@@ -16,6 +16,12 @@ export async function fetchRandomSong(queryParams: string) {
     console.log("dezzerlength", tracks.length);
     const totalTracks = tracks.length;
 
+    //if the keyword does not return any tracks, the length will be 0
+    // this returns the default value if that is the case
+    if (totalTracks === 0) {
+      return (randomTrack = 2535353);
+    }
+
     if (totalTracks > 0) {
       randomTrack = Math.floor(Math.random() * totalTracks);
     }
@@ -27,7 +33,7 @@ export async function fetchRandomSong(queryParams: string) {
 export const getTrackById = async (genreParam: number) => {
   try {
     const result = await fetch(
-      "https://api.deezer.com/genre/&{genreParam}/artists"
+      `https://api.deezer.com/genre/${genreParam}/artists`
     );
     const deezerAPI = await result.json();
 
@@ -42,9 +48,13 @@ export const getTrackById = async (genreParam: number) => {
 
       const artistDetails = await artistDetailsResult.json();
 
+      console.log("what is the issue: ", artistDetails);
+
       const shapedTracks = artistDetails.data.map((track) => track.id);
 
       const randomTrack = getRandomElement(shapedTracks);
+
+      console.log(randomTrack, "test");
 
       return randomTrack;
     } else {
