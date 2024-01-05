@@ -16,6 +16,8 @@ const categoryMapping = {
   "Punch / Party Drink": "Party Potion",
   Beer: "Beer Necessity",
   "Soft Drink": "Soft Sip",
+  "Non alcoholic": "Non alcoholic",
+  "Optional alcohol": "Optional alchohol",
 };
 
 type Drink = {
