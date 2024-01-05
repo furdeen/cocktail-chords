@@ -2,13 +2,9 @@ import { isAbsolute } from "path/posix";
 import {
   DrinkObject,
   CocktailApiResponse,
-  MeasureIngredients,
   Cocktail,
-  CocktailMusic,
 } from "../types/cocktail.types";
 import { getIngredientsArray, getMeasuresArray } from "./cocktail-helpers";
-import { fetchRandomSong, getTrackById } from "./musicService";
-import { getMappedGenre } from "./utility-functions";
 
 export async function fetchCocktailByIdData(
   id: number
@@ -65,12 +61,9 @@ export async function fetchCocktailByIdData(
   }
 }
 
-export async function fetchRandomCocktailData(): Promise<{
-  idDrink: string;
-  strDrink: string;
-  strInstructions: string;
-  strDrinkThumb: string;
-} | null> {
+export async function fetchRandomCocktailData(): Promise<
+  DrinkObject | undefined
+> {
   try {
     const response = await fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/random.php`
@@ -82,18 +75,43 @@ export async function fetchRandomCocktailData(): Promise<{
 
     const responseData: CocktailApiResponse = await response.json();
 
-    const cocktailDrink = responseData.drinks;
+    if (responseData) {
+      const cocktailDrink = responseData.drinks;
 
-    if (cocktailDrink) {
-      const { idDrink, strDrink, strInstructions, strDrinkThumb } =
-        cocktailDrink[0];
-      return { idDrink, strDrink, strInstructions, strDrinkThumb };
+      const {
+        idDrink,
+        strDrink,
+        strCategory,
+        strAlcoholic,
+        strGlass,
+        strInstructions,
+        strDrinkThumb,
+      } = cocktailDrink[0];
+
+      //filter out null values and place ingredients in an array
+      const ingredientsArray = getIngredientsArray(cocktailDrink);
+
+      //filter out null values and place measures in an array
+      const measuresArray = getMeasuresArray(cocktailDrink);
+
+      //create return object
+      const randomCocktail: DrinkObject = {
+        idDrink: idDrink,
+        strDrink: strDrink,
+        strCategory: strCategory,
+        strAlcoholic: strAlcoholic,
+        strGlass: strGlass,
+        strInstructions: strInstructions,
+        strDrinkThumb: strDrinkThumb,
+        ingredients: ingredientsArray,
+        measures: measuresArray,
+      };
+      return randomCocktail;
     }
-
-    return null;
+    return undefined;
   } catch (error) {
     console.error("Error fetching cocktail data:", error);
-    return null;
+    return undefined;
   }
 }
 

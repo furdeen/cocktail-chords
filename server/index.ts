@@ -55,7 +55,7 @@ try {
         `🎸🍸    Or try "http://localhost:${PORT}/api/randomCocktailSong"                 🍸🎸`
       );
       console.log(
-        `🎸🍸    Or try "http://localhost:${PORT}/api/categoryCocktailSong/:id""          🍸🎸`
+        `🎸🍸    Or try "http://localhost:${PORT}/api/categoryCocktailSong/Cocktail""     🍸🎸`
       );
 
       console.log(
