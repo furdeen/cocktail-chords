@@ -3,7 +3,7 @@ body {
   height: 100%;
   background-color: var(--main-background-color);
 
-  background-image: url("../public/beach_bg.jpg");
+  background-image: url("../public/images/beach_bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

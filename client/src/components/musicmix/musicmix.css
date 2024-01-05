@@ -15,7 +15,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 5px;
+  margin: 15px auto 0;
+  max-width: 80%;
 }
 
 .music-mix__category-item {
@@ -32,12 +33,12 @@
   padding: 10px;
   margin: 0 3px 6px;
   transition: background-color 0.3s ease;
+  color: var(--link-color);
 }
 
 .music-mix__category-link:hover {
   background-color: var(--accent-color);
-  color: var(--link-accent-color);
-  color: black;
+  color: var(--link-active-color);
 }
 
 .musicmix__drinks-img {
