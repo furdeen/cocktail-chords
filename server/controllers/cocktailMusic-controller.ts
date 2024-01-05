@@ -1,9 +1,11 @@
 import { Request, Response } from "express";
 import * as CocktailService from "../services/cocktailService";
+import * as CocktailMusicService from "../services/cocktailMusicService";
 
 export async function getRandomCocktailSongData(req: Request, res: Response) {
   try {
-    const cocktailData = await CocktailService.fetchRandomCocktailSongData();
+    const cocktailData =
+      await CocktailMusicService.fetchRandomCocktailSongData();
 
     if (cocktailData) {
       res.status(200).json(cocktailData);
@@ -25,9 +27,8 @@ export async function getCategoryCocktailSong(req: Request, res: Response) {
     return;
   }
   try {
-    const cocktailSongData = await CocktailService.fetchCategoryCocktailSong(
-      requestedId
-    );
+    const cocktailSongData =
+      await CocktailMusicService.fetchCategoryCocktailSong(requestedId);
 
     if (cocktailSongData) {
       res.status(200).json(cocktailSongData);
