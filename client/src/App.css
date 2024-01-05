@@ -1,23 +1,31 @@
-#root {
-  margin: 0 auto;
-  text-align: center;
-  height: 100dvh;
-  width: 100dvw;
-
-  --primary-color: #1da6a6;
-  --secondary-color: #f2be22;
-  --main-background-color: linear-gradient(0deg, #f3f0e7 30%, #f0e4da 76%);
-  --background-color: #e8e8e1;
-  --text-color: #333;
-  --link-color: #333;
-  --link-accent-color: #fff;
-  --accent-color: #f23005;
-  --border-color: #ccc;
-
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  height: 100%;
   background-color: var(--main-background-color);
 
   background-image: url("../public/beach_bg.jpg");
+  background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+}
+
+#root {
+  margin-top: 0;
+  margin: 0 auto;
+  text-align: center;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+
+  --primary-color: #1da6a6;
+  --secondary-color: #edb306;
+  --main-background-color: linear-gradient(0deg, #f3f0e7 30%, #f0e4da 76%);
+  --background-color: #e8e8e185;
+  --text-color: #000;
+  --link-color: #333;
+  --link-active-color: #fff;
+  --accent-color: #f23005;
+  --border-color: #ccc;
 }
 
 .deezer__iframe {
@@ -27,4 +35,16 @@
 /* main styles */
 .main-header {
   font-size: 2rem;
+  color: var(--text-color);
+  padding-bottom: 1rem;
+}
+
+.styled-overlay {
+  backdrop-filter: blur(6px);
+  background-color: var(--background-color);
+  padding: 10px;
+  border: solid #ffffff62 1px;
+  color: #000000;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 10px #ffffff76;
 }

@@ -4,9 +4,17 @@ import "./header.css";
 
 const Header: React.FC = () => {
   useEffect(() => {
-    const handleNavToggle = () => {
+    const handleNavToggle = (event: Event) => {
       const headerNav = document.querySelector(".header__nav") as HTMLElement;
-      headerNav.classList.toggle("header__nav--visible");
+      const isLinkClicked = (event.target as HTMLElement).closest(
+        ".header__nav-link"
+      );
+
+      if (isLinkClicked) {
+        headerNav.classList.remove("header__nav--visible");
+      } else {
+        headerNav.classList.toggle("header__nav--visible");
+      }
     };
 
     const navToggle = document.getElementById("nav-toggle") as HTMLInputElement;

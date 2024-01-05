@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-around;
   background-color: var(--background-color);
+  backdrop-filter: blur(6px);
 }
 
 .drink-music__container {
