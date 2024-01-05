@@ -1,9 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Rubik+Doodle+Shadow&display=swap");
+
 body {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Annie Use Your Telescope", Inter, system-ui, Avenir, Helvetica,
+    Arial, sans-serif;
+  font-size: larger;
   height: 100%;
   background-color: var(--main-background-color);
-
-  background-image: url("../beach_bg.jpg");
+  
+  background-image: url("../images/beach_bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -18,9 +22,9 @@ body {
   width: 100%;
 
   --primary-color: #1da6a6;
-  --secondary-color: #edb306;
+  --secondary-color: #fff;
   --main-background-color: linear-gradient(0deg, #f3f0e7 30%, #f0e4da 76%);
-  --background-color: #e8e8e185;
+  --background-color: #ffffff85;
   --text-color: #000;
   --link-color: #333;
   --link-active-color: #fff;
@@ -37,14 +41,16 @@ body {
   font-size: 2rem;
   color: var(--text-color);
   padding-bottom: 1rem;
+  font-family: "Rubik Doodle Shadow";
 }
 
 .styled-overlay {
   backdrop-filter: blur(6px);
   background-color: var(--background-color);
   padding: 10px;
-  border: solid #ffffff62 1px;
+  /* border: solid #ffffff62 1px; */
   color: #000000;
   border-radius: 5px;
-  box-shadow: 0 0 10px 10px #ffffff76;
+  box-shadow: 0 0 10px 10px #ffffff86;
+  font-size: 1.5rem;
 }

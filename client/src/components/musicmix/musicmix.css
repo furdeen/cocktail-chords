@@ -5,7 +5,6 @@
 .music-mix__text {
   width: 80%;
   margin: auto;
-  font-size: 0.9rem;
 }
 
 .music-mix__category {
@@ -15,7 +14,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 5px;
+  margin: 15px auto 0;
+  max-width: 80%;
 }
 
 .music-mix__category-item {
@@ -32,16 +32,28 @@
   padding: 10px;
   margin: 0 3px 6px;
   transition: background-color 0.3s ease;
+  color: var(--link-color);
 }
 
 .music-mix__category-link:hover {
   background-color: var(--accent-color);
-  color: var(--link-accent-color);
-  color: black;
+  color: var(--link-active-color);
 }
 
 .musicmix__drinks-img {
   width: 200px;
+}
+
+.music-mix__drink-link {
+  text-decoration: none;
+  color: var(--link-color);
+  font-size: 1.2rem;
+  padding-bottom: 0;
+}
+
+.music-mix__drink-text {
+  padding: 0;
+  background-color: #ffffffae;
 }
 
 .music-mix__drinks-list {

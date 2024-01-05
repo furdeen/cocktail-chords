@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Nav from "./nav";
 import "./header.css";
+import "/images/cocktail_chords_logo.svg";
 
 const Header: React.FC = () => {
   useEffect(() => {
@@ -27,7 +28,12 @@ const Header: React.FC = () => {
 
   return (
     <header className="header">
-      <h1 className="header__title">Cocktail Chords</h1>
+      <h1 className="header__title">
+        <img
+          className="header__title-logo"
+          src="/images/cocktail_chords_logo.svg"
+        />
+      </h1>
       <input
         type="checkbox"
         id="nav-toggle"
