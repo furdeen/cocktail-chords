@@ -2,7 +2,6 @@ import * as express from "express";
 import { Express } from "express";
 import * as cocktailController from "../controllers/cocktailcontroller";
 import * as cocktailMusicController from "../controllers/cocktailMusic-controller";
-import { getRandomTrack } from "../controllers/music_controller";
 
 export function initialiseRoutes(app: Express) {
   console.log("🏗️  Setting up routers...");

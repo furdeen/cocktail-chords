@@ -19,8 +19,6 @@ const musicMapping: DrinkGenres = {
 export function getMappedGenre(
   cocktailCategory: string
 ): MusicGenre | undefined {
-  const encodedCategory = encodeURIComponent(cocktailCategory);
-
   const genres = musicMapping[cocktailCategory];
   if (genres) {
     const randomIndex = Math.floor(Math.random() * genres.length);
