@@ -19,7 +19,7 @@ const DrinkMusicDetails: React.FC<DrinkMusicDetailsProps> = ({
   trackId,
 }) => {
   return (
-    <div className="drink-music">
+    <div className="drink-music styled-overlay">
       <div className="drink-music__container">
         <h2 className="drink-music__title">{strDrink}</h2>
         <p className="drink-music__instructions">{strInstructions}</p>
