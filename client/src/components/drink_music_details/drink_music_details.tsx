@@ -24,7 +24,7 @@ const DrinkMusicDetails: React.FC<DrinkMusicDetailsProps> = ({
         <h2 className="drink-music__title">{strDrink}</h2>
         <p className="drink-music__instructions">{strInstructions}</p>
         <div className="drink-music__ingredients">
-          <h3>Ingredients</h3>
+          <h3 className="drink-music__ingredients-header">Ingredients</h3>
           <ul className="drink-music__ingredients-list">
             {ingredients.map((ingredient, index) => (
               <li className="drink-music__ingredients-list-item" key={index}>
@@ -33,7 +33,13 @@ const DrinkMusicDetails: React.FC<DrinkMusicDetailsProps> = ({
             ))}
           </ul>
         </div>
-        <img className="drink-music__img" src={strDrinkThumb} alt={strDrink} />
+        <div className="drink-music__img-container">
+          <img
+            className="drink-music__img"
+            src={strDrinkThumb}
+            alt={strDrink}
+          />
+        </div>
       </div>
 
       <DeezerWidget trackId={trackId} />

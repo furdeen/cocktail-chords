@@ -9,26 +9,34 @@
   width: 42dvw;
 }
 
-/* .drink-music__title {
-  } */
+.drink-music__title {
+  font-family: "Annie Use Your Telescope";
+  letter-spacing: 3px;
+  font-size: 2.4rem;
+}
 
-/* .drink-music__instructions {
-  } */
+.drink-music__ingredients,
+.drink-music__img-container {
+  width: 48%;
+  display: inline-block;
+  vertical-align: top;
+}
 
-/* .drink-music__ingredients {
-   
-  } */
+.drink-music__ingredients-header {
+  font-family: "Annie Use Your Telescope";
+  letter-spacing: 3px;
+  font-size: 2rem;
+  text-align: right;
+}
 
 .drink-music__ingredients-list {
   list-style: none;
+  text-align: right;
 }
 
-/* .drink-music__measures {
-  
-  } */
-
 .drink-music__img {
-  width: 30%;
+  width: 75%;
+  margin-top: 30px;
   padding-bottom: 10px;
 }
 

@@ -1,9 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Rubik+Doodle+Shadow&display=swap");
 
 body {
-  font-family: "Annie Use Your Telescope", Inter, system-ui, Avenir, Helvetica,
-    Arial, sans-serif;
-  font-size: larger;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   height: 100%;
   background-color: var(--main-background-color);
   
@@ -41,7 +39,7 @@ body {
   font-size: 2rem;
   color: var(--text-color);
   padding-bottom: 1rem;
-  font-family: "Rubik Doodle Shadow";
+  /* font-family: "Rubik Doodle Shadow"; */
 }
 
 .styled-overlay {
