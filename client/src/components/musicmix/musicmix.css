@@ -20,6 +20,8 @@
 
 .music-mix__category-item {
   margin: 2px;
+  font-family: "Annie Use Your Telescope";
+  font-size: 1.5rem;
 }
 
 .music-mix__category-link {
@@ -44,16 +46,31 @@
   width: 200px;
 }
 
+.music-mix__drink-link:hover {
+  backdrop-filter: hue-rotate(271deg);
+  outline: solid #d7e5f5;
+  border-radius: 0 0 8px 8px;
+}
+
 .music-mix__drink-link {
   text-decoration: none;
   color: var(--link-color);
   font-size: 1.2rem;
   padding-bottom: 0;
+  display: block;
+}
+
+.music-mix__drink-link:hover {
+  backdrop-filter: hue-rotate(271deg);
+  /* outline: solid white; */
 }
 
 .music-mix__drink-text {
   padding: 0;
   background-color: #ffffffae;
+  margin-top: -7px;
+  position: relative;
+  z-index: -1;
 }
 
 .music-mix__drinks-list {

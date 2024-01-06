@@ -49,8 +49,9 @@ body {
   margin-right: 10px;
   text-decoration: none;
   font-size: 3rem;
-  flex-basis: 33%;
+  /* flex-basis: 33%; */
   /* font-family: "Annie Use Your Telescope", cursive; */
+  font-family: "Annie Use Your Telescope";
 }
 
 .header__nav-link {
@@ -112,6 +113,12 @@ body {
 .header__nav-link {
   text-decoration: none;
   color: black;
+}
+
+@media screen and (max-width: 1114px) {
+  .header__nav-link {
+    font-size: 1.7rem;
+  }
 }
 
 /* Responsive styles */

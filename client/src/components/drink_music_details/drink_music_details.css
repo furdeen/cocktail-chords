@@ -9,15 +9,18 @@
   width: 42dvw;
 }
 
-/* .drink-music__title {
-  } */
+.drink-music__title {
+  font-family: "Annie Use Your Telescope";
+  font-size: 2rem;
+}
 
 /* .drink-music__instructions {
   } */
 
-/* .drink-music__ingredients {
-   
-  } */
+.drink-music__ingredients-header {
+  font-family: "Annie Use Your Telescope";
+  font-size: 2rem;
+}
 
 .drink-music__ingredients-list {
   list-style: none;
