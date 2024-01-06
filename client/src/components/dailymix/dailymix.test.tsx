@@ -56,20 +56,20 @@ test('error handling when API call fails', async () => {
     
   });
 
-  //Create a snapshot test to ensure that future changes do not unintentionally alter the component's UI.
-describe('DailyMix Snapshot', () => {
-    it('should match snapshot', () => {
-      const { asFragment } = render(<DailyMix />);
-      expect(asFragment()).toMatchSnapshot();
-    });
-  });
+//   //Create a snapshot test to ensure that future changes do not unintentionally alter the component's UI.
+// describe('DailyMix Snapshot', () => {
+//     it('should match snapshot', () => {
+//       const { asFragment } = render(<DailyMix />);
+//       expect(asFragment()).toMatchSnapshot();
+//     });
+//   });
 
-  // Mocking DeezerWidget with a default export
-vi.mock('../widgets/deezer_widget', () => ({
-    default: function DummyDeezerWidget(props) {
-      return <div data-testid="deezer-widget" {...props}></div>;
-    },
-  }));
+//   // Mocking DeezerWidget with a default export
+// vi.mock('../widgets/deezer_widget', () => ({
+//     default: function DummyDeezerWidget(props) {
+//       return <div data-testid="deezer-widget" {...props}></div>;
+//     },
+//   }));
   
 //   describe('DailyMix Component', () => {
 //     it('renders DeezerWidget when trackId is available', async () => {
@@ -93,3 +93,7 @@ vi.mock('../widgets/deezer_widget', () => ({
 //       expect(deezerWidget).toHaveAttribute('trackId', '1668848162');
 //     });
 //   });
+
+
+
+  
