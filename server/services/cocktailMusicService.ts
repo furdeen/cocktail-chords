@@ -42,20 +42,22 @@ export async function fetchRandomCocktailSongData(): Promise<
 
 export async function fetchCategoryCocktailSong(
   cocktailId: number
-): Promise<CocktailMusic | undefined> {
+): Promise<CocktailMusic | null> {
   try {
     //Get cocktail data user selected from category page
     const cocktailData = await fetchCocktailByIdData(cocktailId);
-
+    let trackId: number;
     if (!cocktailData) {
       console.error(`HTTP error!`);
-      return undefined;
+      return null;
     }
     //Get music genre mapped to cocktail category
     const mappedGenre = getMappedGenre(cocktailData.strCategory);
 
     //Get music track from mapped music genre
     let musicData = await getTrackById(mappedGenre);
+
+    //trackId = musicData;
 
     if (!musicData) musicData = 2535353;
 
@@ -76,6 +78,6 @@ export async function fetchCategoryCocktailSong(
     return mergedData;
   } catch (error) {
     console.error("Error fetching cocktail data:", error);
-    return undefined;
+    return null;
   }
 }

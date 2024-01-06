@@ -16,13 +16,9 @@ const musicMapping: DrinkGenres = {
   "Optional alcohol": [132, 113, 169],
 };
 
-export function getMappedGenre(
-  cocktailCategory: string
-): MusicGenre | undefined {
+export function getMappedGenre(cocktailCategory: string): number {
   const genres = musicMapping[cocktailCategory];
-  if (genres) {
-    const randomIndex = Math.floor(Math.random() * genres.length);
-    return genres[randomIndex];
-  }
-  return undefined;
+
+  const randomIndex = Math.floor(Math.random() * genres.length);
+  return genres[randomIndex];
 }
