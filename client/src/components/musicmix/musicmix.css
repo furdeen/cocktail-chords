@@ -46,11 +46,22 @@
   width: 200px;
 }
 
+.music-mix__drink-link:hover {
+  outline: solid #d7e5f5;
+  border-radius: 0 0 8px 8px;
+}
+
 .music-mix__drink-link {
   text-decoration: none;
   color: var(--link-color);
   font-size: 1.2rem;
   padding-bottom: 0;
+  display: block;
+}
+
+.music-mix__drink-link:hover {
+  backdrop-filter: hue-rotate(271deg);
+  /* outline: solid white; */
 }
 
 .music-mix__drink-text {
