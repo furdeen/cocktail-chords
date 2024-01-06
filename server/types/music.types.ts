@@ -3,3 +3,7 @@ export interface Genre {
   name: string;
   picture: string;
 }
+
+export interface Artist {
+  id: number;
+}
