@@ -5,7 +5,7 @@ export async function fetchRandomSong(queryParams: string) {
     `https://api.deezer.com/search?q=${queryParams}`
   );
   const deezerData = await deezerResponse.json();
-  let randomTrack: number | undefined;
+  let randomTrack: number;
 
   if (!deezerResponse.ok) {
     return (randomTrack = 2535353);
@@ -24,9 +24,8 @@ export async function fetchRandomSong(queryParams: string) {
 
     if (totalTracks > 0) {
       randomTrack = Math.floor(Math.random() * totalTracks);
+      return tracks[randomTrack].id;
     }
-
-    return tracks[randomTrack].id;
   }
 }
 
