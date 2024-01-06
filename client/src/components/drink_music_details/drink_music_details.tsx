@@ -33,7 +33,13 @@ const DrinkMusicDetails: React.FC<DrinkMusicDetailsProps> = ({
             ))}
           </ul>
         </div>
-        <img className="drink-music__img" src={strDrinkThumb} alt={strDrink} />
+        <div className="drink-music__img-container">
+          <img
+            className="drink-music__img"
+            src={strDrinkThumb}
+            alt={strDrink}
+          />
+        </div>
       </div>
 
       <DeezerWidget trackId={trackId} />
