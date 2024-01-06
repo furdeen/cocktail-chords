@@ -1,4 +1,4 @@
-import { Genre } from "../types/music.types";
+import { Artist, Genre } from "../types/music.types";
 
 export async function fetchRandomSong(queryParams: string) {
   const deezerResponse = await fetch(
@@ -36,11 +36,11 @@ export const getTrackById = async (genreParam: number) => {
     );
     const deezerAPI = await result.json();
 
-    const ShapedArtistsIds = deezerAPI.data.map((artist) => artist.id);
+    const ShapedArtistsIds = deezerAPI.data.map((artist: Artist) => artist.id);
 
     const randomArtist = getRandomElement(ShapedArtistsIds);
-    console.log(randomArtist);
-    if (randomArtist !== undefined) {
+
+    if (randomArtist) {
       const artistDetailsResult = await fetch(
         `https://api.deezer.com/artist/${randomArtist}/top?limit=50`
       );
@@ -49,15 +49,15 @@ export const getTrackById = async (genreParam: number) => {
 
       console.log("what is the issue: ", artistDetails);
 
-      const shapedTracks = artistDetails.data.map((track) => track.id);
+      const shapedTracks = artistDetails.data.map((track: Artist) => track.id);
 
       const randomTrack = getRandomElement(shapedTracks);
 
-      console.log(randomTrack, "test");
-
       return randomTrack;
     } else {
-      console.log("error, track has not been found!");
+      let randomTrack: number = 2535353;
+
+      return randomTrack;
     }
   } catch (error) {
     console.log("there has been an error getting the id's", error);
