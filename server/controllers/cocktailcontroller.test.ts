@@ -1,6 +1,10 @@
 import { describe, it, expect, vi } from 'vitest';
 import * as cocktailController from '../controllers/cocktailcontroller';
+import request from 'supertest';
+import app from './dummyServer';
 
+
+//unit test for CocktailController
 describe('Cocktail Controller Tests', () => {
   it('getCocktailByIdData returns 500 for invalid ID', async () => {
     // Setup with a  invalid numeric ID
@@ -54,3 +58,10 @@ describe('Cocktail Controller Tests', () => {
 
   // Add more tests as needed...
 });
+
+//integration test for CocktailController
+
+
+
+
+
