@@ -33,7 +33,7 @@ const DailyMix: React.FC = () => {
 
   return (
     <>
-      <h1 className="main-header">Cocktail of the Day</h1>
+      <h1 className="main-header" data-testid="daily-mix">Cocktail of the Day</h1>
       {dailymix && <DrinkMusicDetails {...dailymix} />}
     </>
   );

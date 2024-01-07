@@ -102,7 +102,7 @@ const MusicMix: React.FC = () => {
 
   return (
     <>
-      <h1 className="main-header">Chord &amp; Mix Matchmaker</h1>
+      <h1 className="main-header" data-testid="music-mix">Chord &amp; Mix Matchmaker</h1>
       <section className="music-mix__text styled-overlay">
         You select your cocktail and we'll choose the perfect tune to accompany
         it.
