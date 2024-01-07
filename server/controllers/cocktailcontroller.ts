@@ -3,6 +3,7 @@ import * as CocktailService from "../services/cocktailService";
 import { isValidCategory } from "../types/cocktail.types";
 
 export async function getCocktailByIdData(req: Request, res: Response) {
+
   const id = req.params.id;
   const requestedId = Number.parseInt(id);
   if (Number.isNaN(requestedId)) {
