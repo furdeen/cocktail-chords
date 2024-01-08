@@ -89,13 +89,13 @@ SO THAT....
 
 ## Architecture
 
-Frontend: Developed with React, the user interface provides an intuitive and responsive user experience.
-
-Backend: Built using Express Node, the backend handles calls from the front end, public API integration, data processing and returns data to the frontend.
-
 ### Frontend
 
+Developed with React, the user interface provides an intuitive and responsive user experience.
+
 ### Backend
+
+Built using Express Node, the backend handles calls from the front end, public API integration, data processing and returns data to the frontend.
 
 #### Available routes
 
