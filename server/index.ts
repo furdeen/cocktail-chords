@@ -3,8 +3,10 @@ import * as cors from "cors";
 import { Server } from "http";
 import { initialiseRoutes } from "./routes/routes";
 import { printNewLine } from "./helpers/helpers";
+//import app from "./app";
 
 const PORT = 8080;
+//const app = express();
 
 try {
   printNewLine();
@@ -85,3 +87,4 @@ function handleShutdown(server: Server) {
     process.exit(0);
   });
 }
+//export default app;

@@ -1,8 +1,8 @@
 import { describe, it, expect, vi } from 'vitest';
 import * as cocktailController from '../controllers/cocktailcontroller';
 import request from 'supertest';
-import app from './dummyServer';
-
+import app from '../controllers/dummyServer';
+import * as CocktailService from '../services/cocktailService';
 
 //unit test for CocktailController
 describe('Cocktail Controller Tests', () => {
@@ -52,16 +52,37 @@ describe('Cocktail Controller Tests', () => {
     // Assertions for successful response
     expect(statusMock).toHaveBeenCalledWith(200); // Check if status 200 was called
     expect(jsonMock).toHaveBeenCalled(); // Check if json was called
-    // If your controller uses send instead of json, replace the above line with:
+
     // expect(sendMock).toHaveBeenCalled();
   });
 
-  // Add more tests as needed...
 });
 
 //integration test for CocktailController
 
+describe('Cocktailcontoller  API Integration Tests', () => {
 
+  it('GET /api/random-cocktail', async () => {
+    const response = await request(app).get('/api/randomCocktail/');
+    expect(response.status).toBe(200);
+    expect(response.body).toBeDefined(); });
 
+    it('GET /random-cocktail- not found', async () => {
+      const response = await request(app).get('/randomCocktail/');
+      expect(response.status).toBe(404);
+    });
+
+    it('GET /categoryCocktail/:id - success', async () => {
+      const response = await request(app).get(`/api/cocktailById/11007`);
+      expect(response.status).toBe(200);
+      expect(response.body).toBeDefined();
+    });
+
+    it('GET /category-cocktail/:id - invalid id', async () => {
+       const response = await request(app).get(`/api/cocktailById/{anyThingbutNotNumber}`);
+       expect(response.status).toBe(500);
+       expect(response.body).toHaveProperty('message', 'Invalid cocktail Id');
+     });
+});
 
 
