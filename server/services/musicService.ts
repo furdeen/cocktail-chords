@@ -7,6 +7,11 @@ export async function fetchRandomSong(queryParams: string) {
   const deezerData = await deezerResponse.json();
   let randomTrack: number;
 
+  let randomSongArray: number[] = [
+    144393668, 134527024, 2535353, 416942782, 142986206, 13651702, 6461440,
+    916427, 9997018, 908604612,
+  ];
+
   if (!deezerResponse.ok) {
     return (randomTrack = 2535353);
   }
@@ -19,7 +24,9 @@ export async function fetchRandomSong(queryParams: string) {
     //if the keyword does not return any tracks, the length will be 0
     // this returns the default value if that is the case
     if (totalTracks === 0) {
-      return (randomTrack = 2535353);
+      randomTrack = Math.floor(Math.random() * randomSongArray.length);
+      console.log(randomTrack);
+      return randomSongArray[randomTrack];
     }
 
     if (totalTracks > 0) {
