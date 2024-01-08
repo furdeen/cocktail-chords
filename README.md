@@ -99,7 +99,7 @@ Built using Express Node, the backend handles calls from the front end, public A
 
 #### Available routes
 
-Available Book API routes to test are:
+Cocktail Chord endpoints:
 
 | Endpoints                                                  | Description                                        |
 | ---------------------------------------------------------- | -------------------------------------------------- |
@@ -148,9 +148,11 @@ The backend server will run locally on your browser at localhost:8080
 - [ExpressJS](https://expressjs.com/)
 - [Supertest](https://www.npmjs.com/package/supertest)
 - [ESLint](https://eslint.org/)
-- [Vitest]
-- [Vite]
--
+- [Vitest](https://www.npmjs.com/package/vitest)
+- [Vite](https://www.npmjs.com/package/vite)
+- [Nodemon](https://www.npmjs.com/package/nodemon)
+- [Node](https://www.npmjs.com/package/node)
+- [express](https://www.npmjs.com/package/express)
 
 ## Questions
 
