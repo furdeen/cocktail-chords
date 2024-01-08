@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Nav from "./nav";
 import "./header.css";
-import "/images/cocktail_chords_logo.svg";
+import "/images/cocktail_chords_logo.png";
 
 const Header: React.FC = () => {
   useEffect(() => {
@@ -31,7 +31,7 @@ const Header: React.FC = () => {
       <h1 className="header__title">
         <img
           className="header__title-logo"
-          src="/images/cocktail_chords_logo.svg"
+          src="/images/cocktail_chords_logo.png"
         />
       </h1>
       <input
