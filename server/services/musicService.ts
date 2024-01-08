@@ -47,8 +47,6 @@ export const getTrackById = async (genreParam: number) => {
 
       const artistDetails = await artistDetailsResult.json();
 
-      console.log("what is the issue: ", artistDetails);
-
       const shapedTracks = artistDetails.data.map((track: Artist) => track.id);
 
       const randomTrack = getRandomElement(shapedTracks);
