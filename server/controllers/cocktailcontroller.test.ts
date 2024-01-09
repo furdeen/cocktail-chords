@@ -78,7 +78,8 @@ describe('Cocktailcontoller  API Integration Tests', () => {
       expect(response.body).toBeDefined();
     });
 
-    it('GET /category-cocktail/:id - invalid id', async () => {
+    it('GET /category-cocktail-song/:id - invalid id', async () => {
+      // const invalidId = 'abc'; // An invalid ID to test error handling
        const response = await request(app).get(`/api/cocktailById/{anyThingbutNotNumber}`);
        expect(response.status).toBe(500);
        expect(response.body).toHaveProperty('message', 'Invalid cocktail Id');
