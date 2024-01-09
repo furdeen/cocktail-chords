@@ -87,3 +87,14 @@
   width: 200px;
   margin: 3px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .music-mix__category-link {
+    background-color: #122456;
+    color: #fff;
+  }
+  .music-mix__category-link:hover {
+    background-color: #d0defd;
+    color: #122456;
+  }
+}
