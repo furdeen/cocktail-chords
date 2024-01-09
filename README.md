@@ -84,10 +84,12 @@ WHEN I use Cocktail Chords to select my preferred cocktail, enhancing my overall
 As a user exploring Cocktail Chords interface,
 When I interact with the UX,
 Then I expect a seamless and intuitive display.
-SO THAT....
+SO THAT navigating and enjoying cocktails and music feels effortless and delightful.
 ```
 
 ## Architecture
+
+![cocktail chords architecture](./assets/cocktailChords-architecture.png)
 
 ### Frontend
 
@@ -165,8 +167,9 @@ npm test
 - [Vitest](https://www.npmjs.com/package/vitest)
 - [Vite](https://www.npmjs.com/package/vite)
 - [Nodemon](https://www.npmjs.com/package/nodemon)
-- [Node](https://www.npmjs.com/package/node)
-- [express](https://www.npmjs.com/package/express)
+- [Nodejs](https://www.npmjs.com/package/node)
+- [expressjs](https://www.npmjs.com/package/express)
+- [react-router](https://www.npmjs.com/package/react-router)
 
 ## Questions
 
