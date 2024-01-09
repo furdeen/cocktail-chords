@@ -185,10 +185,7 @@
     text-shadow: 2px 0 #ae2e00;
   }
 
-  .header__nav-icon {
-    color: #fff;
-  }
-
+  .header__nav-icon,
   .header__nav-link {
     color: #fff;
   }
