@@ -100,4 +100,13 @@
   .music-mix__drinks-title {
     color: #fff;
   }
+
+  .music-mix__drink-text {
+    color: black;
+  }
+  .styled-overlay {
+    background-color: #00000086;
+    color: #fff;
+    box-shadow: 0 0 10px 10px #00000086;
+  }
 }
