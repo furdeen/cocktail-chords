@@ -89,7 +89,7 @@ SO THAT navigating and enjoying cocktails and music feels effortless and delight
 
 ## Architecture
 
-![cocktail chords architecture](./assets/cocktailChords-architecture.png)
+![cocktail chords architecture](./assets/cc-architecture.png)
 
 ### Frontend
 
