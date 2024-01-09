@@ -50,3 +50,9 @@
     padding: 10px;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .drink-music {
+    background-color: #00000086;
+  }
+}
