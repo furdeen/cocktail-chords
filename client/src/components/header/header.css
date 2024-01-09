@@ -184,4 +184,15 @@
   .header__nav-link:hover {
     text-shadow: 2px 0 #ae2e00;
   }
+
+  .header__nav-icon {
+    color: #fff;
+  }
+
+  .header__nav-link {
+    color: #fff;
+  }
+  .header__nav--visible {
+    background-color: #020000;
+  }
 }
