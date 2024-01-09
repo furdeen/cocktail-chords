@@ -4,7 +4,7 @@ body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   height: 100%;
   background-color: var(--main-background-color);
-  
+
   background-image: url("../images/beach_bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,6 +23,7 @@ body {
   --secondary-color: #fff;
   --main-background-color: linear-gradient(0deg, #f3f0e7 30%, #f0e4da 76%);
   --background-color: #ffffff85;
+  --dark-background-color: #111010d8;
   --text-color: #000;
   --link-color: #333;
   --link-active-color: #fff;
@@ -51,4 +52,21 @@ body {
   border-radius: 5px;
   box-shadow: 0 0 10px 10px #ffffff86;
   font-size: 1.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image: url("../images/night_bg.jpg");
+    background-color: #000;
+  }
+
+  .main-header {
+    color: #fff;
+  }
+
+  .styled-overlay {
+    background-color: #00000086;
+    color: #fff;
+    box-shadow: 0 0 10px 10px #00000086;
+  }
 }
