@@ -20,7 +20,7 @@ Cocktail Chords is a full-stack application that combines the art of cocktail mi
 
 - Cocktail and Music Pairing: The "Cocktail of the Day" provides the user with a randomly selected cocktail matched with a complementary song.
 
-- Customized Experience: Enables a user to select a preferred cocktail from a choice of categories. Cocktail Chords will link the cocktail to a music genre, provide a matching musical accompaniment providing a more user personalized interaction.
+- Customized Experience: Enables a user to select a preferred cocktail from a choice of categories. Cocktail Chords will link the cocktail to a music genre, provide a matching musical accompaniment, and provide a more user-personalized interaction.
 
 ## Development Approach
 
@@ -75,7 +75,6 @@ Objective: Develop a minimal version of Cocktail Chords that showcases the integ
 
 As a group we defined the following user story and criteria based on our MVP:
 
-```md
 AS A cocktail enthusiast seeking inspiration for a unique mix of flavours and music experiences,
 WHEN I access the Cocktail Chords application,
 THEN I want to be presented with a "cocktail of the Day," paired with a matching themed song, so that I can discover new and exciting combinations.
@@ -141,12 +140,24 @@ To run the server :
 The backend server will run locally on your browser at localhost:8080
 
 ## Tests
+Frontend testing (clientside)
+In the frontend of our application, we use the "React Testing Library" in conjunction with "Vitest" to simulate user interactions and verify that components render correctly. We focus on unit tests for individual components, like DailyMix and DrinkMusicDetails, ensuring that they behave as expected when receiving data props and user events. "Snapshot" testing is also considered to safeguard against unintended changes in the UI.
+
+To run the client-side test: 
+npm test
+
+Backend testing (Serverside)
+For the backend, we employ Vitest for unit testing and Supertest for integration tests. Unit tests in files like cocktailcontroller.test.ts verify the correctness of our CocktailController functions, ensuring they handle various input cases correctly, from invalid IDs to successful data retrieval. Integration tests interact with a dummy server to ensure our API endpoints, such as /api/randomCocktail, respond as expected to HTTP requests, returning the correct status codes and data.
+
+To run the server-side test:
+npm test
 
 ## Technologies Used
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [ExpressJS](https://expressjs.com/)
 - [Supertest](https://www.npmjs.com/package/supertest)
+- [testing library](https://testing-library.com/)
 - [ESLint](https://eslint.org/)
 - [Vitest](https://www.npmjs.com/package/vitest)
 - [Vite](https://www.npmjs.com/package/vite)
@@ -154,9 +165,12 @@ The backend server will run locally on your browser at localhost:8080
 - [Node](https://www.npmjs.com/package/node)
 - [express](https://www.npmjs.com/package/express)
 
+#
+
+
 ## Questions
 
-If you have any questions regarding this project or contents of this repository, please contact:
+If you have any questions regarding this project or the contents of this repository, please contact:
 
 - Amier98: https://github.com/amier98
 - Ben: https://github.com/manglebot
